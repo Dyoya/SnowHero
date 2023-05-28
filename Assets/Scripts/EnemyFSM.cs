@@ -31,7 +31,7 @@ public class EnemyFSM : MonoBehaviour
 
     Vector3 originPos;
     Quaternion originRot;
-    public float moveDistance = 40f;
+    public float maxDistanceFromPlayer = 40f; //플레이어 추격 최대 범위
 
     public int hp;
     public int maxhp = 15;
@@ -104,7 +104,7 @@ public class EnemyFSM : MonoBehaviour
     }
     void Move()
     {
-        if(Vector3.Distance(transform.position, originPos) > moveDistance)
+        if(Vector3.Distance(transform.position, player.position) > maxDistanceFromPlayer)
         {
             m_State = EnemyState.Return;
             print("상태 전환 : Move -> Return !!");
@@ -149,7 +149,12 @@ public class EnemyFSM : MonoBehaviour
     }
     void Return()
     {
-        if(Vector3.Distance(transform.position, originPos) > 0.5f)
+        if(Vector3.Distance(transform.position, player.position) < maxDistanceFromPlayer)
+        {
+            m_State = EnemyState.Move;
+            print("상태 전환: Return -> Move !!");
+        }
+        else if (Vector3.Distance(transform.position, originPos) > 0.5f)
         {
             agent.SetDestination(originPos);
         }
