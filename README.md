@@ -27,6 +27,18 @@
 - `PlayerRotate`
     플레이어 캐릭터의 회전
 
+- `Mainmenu`
+    메인 메뉴
+
+- `StageButtonEvent`
+    버튼 상호작용 이벤트 처리
+
+- `StageLock`
+    스테이지 해방 기능
+
+- `GameManager`
+    게임 진행 요소를 관리하는 스크립트
+
 ## 메모
 - 참고!
 https://wergia.tistory.com/238
