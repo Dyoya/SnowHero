@@ -12,6 +12,7 @@
 - `EnemyFSM`의 플레이어 추격 부분 수정
 - 스테이지와 UI에 관련된 `StageScripts/` 내에 스크립트 `Mainmenu`, `StageButtonEvent`, `StageLock` 추가
 - 전체적인 게임 정보(스테이지 진행)를 다루는 `GameManager` 추가
+- `Scenes` 폴더 내에 스테이지 씬 생성
 
 ## 스크립트 정보
 - `CamRotate`
