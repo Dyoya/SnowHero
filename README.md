@@ -1,8 +1,8 @@
 # SnowHero
 
 ### 수정 내역
-[2023-05-28] 
-`v0.0.1`
+[2023-05-28]\n 
+(13:45) `v0.0.1`
 - 스크립트 `CamRotate`, `PlayerMove`와 `ARAVRInput` 파일 추가 
 - 스크립트 `GrabObject`, `Gun`은 참고용으로 추가 (추후 삭제 할 수도?)
 - 스크립트 `EnemyFSM` 추가
