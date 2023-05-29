@@ -15,9 +15,7 @@ public class PlayerMove : MonoBehaviour
     float yVelocity = 0;
 
     // 점프 크기
-    public float jumpPower = 4f;
-    public bool isJumping = false;
-
+    public float jumpPower = 5;
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -36,12 +34,10 @@ public class PlayerMove : MonoBehaviour
         if (cc.isGrounded)
         {
             yVelocity = 0;
-            isJumping = false;
         }
-        if (ARAVRInput.GetDown(ARAVRInput.Button.Two, ARAVRInput.Controller.RTouch) && !isJumping)
+        if (ARAVRInput.GetDown(ARAVRInput.Button.Two, ARAVRInput.Controller.RTouch))
         {
             yVelocity = jumpPower;
-            isJumping = true;
         }
         dir.y = yVelocity;  
 
