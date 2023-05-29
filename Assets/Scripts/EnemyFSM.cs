@@ -19,7 +19,7 @@ public class EnemyFSM : MonoBehaviour
 
     public float findDistance = 30f; // 플레이어 발견 범위
     public float attackDistance = 4f; // 플레이어 공격 범위
-    public float moveSpeed = 3f; // Enemy 이동 속도
+    public float moveSpeed = 9f; // Enemy 이동 속도
 
     Transform player;
     CharacterController cc;
