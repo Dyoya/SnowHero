@@ -13,6 +13,7 @@ public class StageLock : MonoBehaviour
         Button[] stages = stageNumObject.GetComponentsInChildren<Button>();
 
         clearStage = PlayerPrefs.GetInt("stage");
+        //PlayerPrefs.SetInt("stage", 2);
         Debug.Log(clearStage.ToString());
 
         for (int i = clearStage + 1; i < stages.Length; i++)
