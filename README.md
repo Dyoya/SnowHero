@@ -28,14 +28,20 @@
 - `EnemyFSM`
     적의 상태, 정보
 
+- `GameManager`
+    게임 진행 요소를 관리하는 스크립트
+
+- `Mainmenu`
+    메인 메뉴
+
+- `Player`
+    플레이어 체력 관리하는 스크립트
+
 - `PlayerMove`
     플레이어의 이동
 
 - `PlayerRotate`
     플레이어 캐릭터의 회전
-
-- `Mainmenu`
-    메인 메뉴
 
 - `StageButtonEvent`
     버튼 상호작용 이벤트 처리
@@ -43,11 +49,7 @@
 - `StageLock`
     스테이지 해방 기능
 
-- `GameManager`
-    게임 진행 요소를 관리하는 스크립트
 
-- `Player`
-    플레이어 체력 관리하는 스크립트
 
 ## 메모
 - 참고!
