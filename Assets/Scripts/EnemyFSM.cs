@@ -19,7 +19,7 @@ public class EnemyFSM : MonoBehaviour
 
     public float findDistance = 30f; // 플레이어 발견 범위
     public float attackDistance = 4f; // 플레이어 공격 범위
-    public float moveSpeed = 9f; // Enemy 이동 속도
+    public float moveSpeed = 3f; // Enemy 이동 속도
 
     Transform player;
     CharacterController cc;
@@ -125,7 +125,7 @@ public class EnemyFSM : MonoBehaviour
     IEnumerator AttackProcess() //
     {
         yield return new WaitForSeconds(0.5f);
-        //player.GetComponent<PlayerMove>().DamageAction(attackPower); // 플레이어에게 데미지 주기
+        player.GetComponent<Player>().Damage(attackPower);
         print("공격!");
     }
     void Attack()
