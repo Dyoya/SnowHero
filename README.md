@@ -41,6 +41,9 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.6` (20:45)
 - Enemy 네비게이션 기능 수정
 
+`v0.0.7` (10:50)
+- 스크립트 `SnowballThrower`, `DestroySnowball` 파일  추가
+
 ## 스크립트 정보
 - `CamRotate`
     플레이어의 화면 회전(마우스)
@@ -68,3 +71,9 @@ https://blog.naver.com/raruz/222852771902
 
 - `StageLock`
     스테이지 해방 기능
+
+- `SnowballThrower`
+    눈덩이 던지가 기능
+
+- `DestroySnowball`
+    눈덩이 적중시 눈덩이 삭제 기능
