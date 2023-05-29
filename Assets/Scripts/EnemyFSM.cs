@@ -125,7 +125,7 @@ public class EnemyFSM : MonoBehaviour
     IEnumerator AttackProcess() //
     {
         yield return new WaitForSeconds(0.5f);
-        //player.GetComponent<PlayerMove>().DamageAction(attackPower); // 플레이어에게 데미지 주기
+        player.GetComponent<Player>().Damage(attackPower);
         print("공격!");
     }
     void Attack()
