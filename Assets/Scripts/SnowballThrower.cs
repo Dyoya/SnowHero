@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class SnowballThrower : MonoBehaviour
 {
-    public float minThrowPower = 5f;    
-    public float maxThrowPower = 20f;   
+    public float minThrowPower = 5f;
+    public float maxThrowPower = 20f;
     public float maxHoldTime = 2f;      // 최대 힘까지 걸리는 시간
     public float forwardOffset = 1f;
-    public int numPoints = 30;          
-    public LineRenderer lineRenderer;   
-    public GameObject snowballPrefab;   
-    public LayerMask destroyLayer;     
+    public int numPoints = 30;
+    public LineRenderer lineRenderer;
+    public GameObject snowballPrefab;
+    public LayerMask destroyLayer;
 
-    private float currentHoldTime;     
-    private bool isThrowing;            
+    private float currentHoldTime;
+    private bool isThrowing;
 
     void Update()
     {
@@ -22,12 +22,13 @@ public class SnowballThrower : MonoBehaviour
             currentHoldTime = 0f;
             lineRenderer.positionCount = 0;
         }
-        else if (ARAVRInput.GetUp(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
+
+        else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
         {
             currentHoldTime = Mathf.Clamp(currentHoldTime + Time.deltaTime, 0f, maxHoldTime); // 0 ~ maxHoldTime 사이값만 존재
             CalculateTrajectory();
         }
-        else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
+        else if (ARAVRInput.GetUp(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
         {
             isThrowing = false;
             ThrowSnowball();
