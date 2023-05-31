@@ -41,7 +41,7 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.6` (20:45)
 - Enemy 네비게이션 기능 수정
 
-`v0.0.7` (10:50)
+`v0.0.7` (22:50)
 - 스크립트 `SnowballThrower`, `DestroySnowball` 파일  추가
 
 ## 스크립트 정보
