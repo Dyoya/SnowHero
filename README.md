@@ -44,6 +44,10 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.7` (22:50)
 - 스크립트 `SnowballThrower`, `DestroySnowball` 파일  추가
 
+### [2023-06-01]
+`v0.0.8` (11:03)
+- SampleScenes, 1Stage 꾸미기
+
 ## 스크립트 정보
 - `CamRotate`
     플레이어의 화면 회전(마우스)
