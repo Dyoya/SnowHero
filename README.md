@@ -48,6 +48,9 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.8` (11:03)
 - SampleScenes, 1Stage 꾸미기
 
+`v0.0.9` (13:07)
+- Audio, Effect, Item, Monster 에셋 추가
+
 ## 스크립트 정보
 - `CamRotate`
     플레이어의 화면 회전(마우스)
