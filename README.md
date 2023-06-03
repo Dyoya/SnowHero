@@ -55,7 +55,7 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.9` (13:07)
 - Audio, Effect, Item, Monster 에셋 추가
 
-### [2023-06-01]
+### [2023-06-03]
 `v0.0.10` (15:40)
 - `GrabObject`, `Gun` 스크립트 삭제
 - `Oculus Integration` 패키지 설치 필요
