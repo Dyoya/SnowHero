@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject StageUI;
     public GameObject OptionUI;
     public GameObject UpgradeUI;
+    public GameObject KeyControlUI;
 
     // 모든 UI를 닫는 내부 함수입니다.
     private void closeAllUI()
@@ -17,6 +18,7 @@ public class MainMenu : MonoBehaviour
         StageUI.SetActive(false);
         OptionUI.SetActive(false);
         UpgradeUI.SetActive(false);
+        KeyControlUI.SetActive(false);
     }
 
     // 게임 스타트 버튼 이벤트 함수입니다.
@@ -42,6 +44,12 @@ public class MainMenu : MonoBehaviour
     {
         closeAllUI();
         OptionUI.SetActive(true);
+    }
+
+    public void KeyControlButtonClicked()
+    {
+        closeAllUI();
+        KeyControlUI.SetActive(true);
     }
 
     // 게임 종료 버튼 이벤트 함수입니다.

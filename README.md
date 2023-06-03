@@ -64,13 +64,19 @@ https://blog.naver.com/raruz/222852771902
 ### [2023-06-03]
 `v0.1.0` (22:06)
 - `MainMenu`, `StageButtonEvent`, `StageLock` , `Upgrade` 스크립트 수정 및 추가
-    ->  `Upgrade` 스크립트 별의 개수만큼 업그레이드 할수있도록 수정예정
+    ~~->  `Upgrade` 스크립트 별의 개수만큼 업그레이드 할수있도록 수정예정~~ 
 - `UI` 디자인 리소스가 추가, 변경되었습니다.
 - PlayerPref에 Int형 변수 "stage" , "stage_star_x" 추가 
     -> stage 0 클리어시 stage변수를 1로 바꿔주시면됩니다. 
     -> PlayerPrefs.SetInt(stage_star_0,3) -> 0번스테이지 별 3개 주겟다는 의미입니다. 
 - PlayerPref에 Int형 변수 MoveSpeed , AttackSpeed , Health , AttackPower , SpecialSkill 추가되었습니다. 
     -> Player 에서 GetInt 하셔서 더해주시면 될것같습니다.
+
+`v0.1.1` (22:55)
+- 조작키를 볼수있는 UI 추가
+- `Upgrade` 스크립트 별의 개수만큼 업그레이드 할수있도록 수정
+- PlayerPref에 Int형 변수 "total_star" 추가 
+- `GameManager` 참고하여 SampleScene에 UI 추가하겠습니다. 
 
 ## 스크립트 정보
 - `CamRotate`
