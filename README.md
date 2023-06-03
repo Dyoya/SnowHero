@@ -1,6 +1,10 @@
 # SnowHero
 
 ## 메모
+- 패키지 매니저에서 `Oculus Integration` 설치해서 임포트 부탁드려요! 용량이 커서 혹시몰라 이그노어 처리했습니다. 아직 사용된 파일은 X
+
+- 샘플 씬에서 Player에 있는 Cube는 플레이어가 쳐다보는 방향 표시를 위한 오브젝트입니다. enemy가 아니에요!
+
 - 참고!
 https://wergia.tistory.com/238
 
@@ -14,7 +18,7 @@ https://blog.naver.com/raruz/222852771902
 ### [2023-05-28]
 `v0.0.1` (13:40)
 - 스크립트 `CamRotate`, `PlayerMove`와 `ARAVRInput` 파일 추가 
-- 스크립트 `GrabObject`, `Gun`은 참고용으로 추가 (추후 삭제 할 수도?)
+- ~~스크립트 `GrabObject`, `Gun`은 참고용으로 추가 (추후 삭제 할 수도?)~~
 - 스크립트 `EnemyFSM` 추가
     플레이어 추격, 공격 등
 
@@ -50,6 +54,13 @@ https://blog.naver.com/raruz/222852771902
 
 `v0.0.9` (13:07)
 - Audio, Effect, Item, Monster 에셋 추가
+
+### [2023-06-03]
+`v0.0.10` (15:40)
+- `GrabObject`, `Gun` 스크립트 삭제
+- `Oculus Integration` 패키지 설치 필요
+- `Asset/Oculus/` 이그노어 등록
+
 
 ## 스크립트 정보
 - `CamRotate`
