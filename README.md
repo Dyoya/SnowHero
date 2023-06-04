@@ -72,6 +72,15 @@ https://blog.naver.com/raruz/222852771902
 - PlayerPref에 Int형 변수 MoveSpeed , AttackSpeed , Health , AttackPower , SpecialSkill 추가되었습니다. 
     -> Player 에서 GetInt 하셔서 더해주시면 될것같습니다.
 
+### [2023-06-04]
+`v0.1.1` (17:10)
+- `EnemyFSM` 스크립트 수정 및 추가
+    -> 보스 패턴 추가
+- `SnowballThrower` 스크립트 수정
+- `DestroySnowball` 스크립트 수정
+- `Magic_ball`, `Magic_spear`, `Magic_rock` 스크립트 추가
+    -> 보스 공격 스킬 수정 및 추가 예정
+
 ## 스크립트 정보
 - `CamRotate`
     플레이어의 화면 회전(마우스)
@@ -104,7 +113,14 @@ https://blog.naver.com/raruz/222852771902
     눈덩이 던지가 기능
 
 - `DestroySnowball`
-    눈덩이 적중시 눈덩이 삭제 기능
+    눈덩이 적중시 눈덩이 삭제 및 데미지 기능
 
 - `Upgrade` 
     Player업그레이드 스크립트 
+
+- `Magic_ball`
+    보스 마법 1
+- `Magic_spear`
+    보스 마법 2
+- `Magic_rock`
+    보스 마법 3

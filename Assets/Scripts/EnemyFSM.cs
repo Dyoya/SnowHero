@@ -5,6 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyFSM : MonoBehaviour
 {
+    public enum Type { Normal, Boss };
+    public Type enemyType;
+    public GameObject Magic_ball;
+    public GameObject Magic_spear;
+    public GameObject Magic_rock;
+    private Coroutine coroutine;
+    public Animator anime;
+    public Transform Ballport;
+    Vector3 lookVec;
+    bool isLook;
 
     enum EnemyState
     {
@@ -42,6 +52,7 @@ public class EnemyFSM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isLook = true;
         m_State = EnemyState.Idle;
         player = GameObject.Find("Player").transform;
 
@@ -52,15 +63,30 @@ public class EnemyFSM : MonoBehaviour
 
         hp = maxhp;
 
+        if (enemyType == Type.Boss)
+        {
+            hp = 300;
+            attackDistance = 20f;
+        }
+
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
         agent.speed = moveSpeed;
     }
 
     // Update is called once per frame
+
     void Update()
     {
         currentTime += Time.deltaTime; //
+
+        if (isLook)
+        {
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
+            lookVec = new Vector3 (h, 0, v) * 5f;
+            transform.LookAt(player.position + lookVec);
+        }
 
         switch (m_State)
         {
@@ -133,9 +159,15 @@ public class EnemyFSM : MonoBehaviour
         if(Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             //currentTime += Time.deltaTime;
-            if (currentTime >= attackDelay)
+            if (currentTime >= attackDelay && enemyType != Type.Boss)
             {
                 StartCoroutine(AttackProcess());
+                currentTime = 0;
+            }
+            else
+            {
+                if (coroutine == null)
+                coroutine = StartCoroutine(BossMagicProcess());
                 currentTime = 0;
             }
         }
@@ -147,6 +179,80 @@ public class EnemyFSM : MonoBehaviour
             currentTime = 0;
         }
     }
+
+    IEnumerator BossMagicProcess()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        int randAction = Random.Range(0, 3);
+        switch (randAction)
+        {
+            case 0:
+                StartCoroutine(Attack_Magic_spear());
+                break;
+            case 1:
+                StartCoroutine(Attack_Magic_ball());
+                break;
+            case 2:
+                StartCoroutine(Attack_Magic_rock());
+                break;
+        }
+    }
+
+    IEnumerator Attack_Magic_spear()
+    {
+        anime.SetTrigger("doMagic_spear");
+        yield return new WaitForSeconds(0.2f);
+        GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
+        Spear.SetActive(true);
+        print("magic_spear!");
+        yield return new WaitForSeconds(2.5f);
+
+        StartCoroutine(BossMagicProcess());
+    }
+
+    IEnumerator Attack_Magic_ball()
+    {
+        anime.SetTrigger("doMagic_ball");
+        yield return new WaitForSeconds(0.2f);
+        GameObject Ball = Instantiate(Magic_ball, Ballport.position, Ballport.rotation);
+        Ball.SetActive(true);
+        print("magic_ball!");
+        yield return new WaitForSeconds(2.5f);
+
+        StartCoroutine(BossMagicProcess());
+    }
+
+    IEnumerator Attack_Magic_rock()
+    {
+        print("magic_rock!");
+        anime.SetTrigger("doMagic_rock");
+        yield return new WaitForSeconds(0.2f);
+
+        float offsetHeight = 20f; // 플레이어 머리 위로의 오프셋 높이
+
+        Vector3 spawnPosition = player.position + Vector3.up * offsetHeight;
+
+        GameObject Rock = Instantiate(Magic_rock, spawnPosition, Quaternion.identity);
+        Rock.SetActive(true);
+        Rock.GetComponent<Magic_Rock>().enabled = false; // Magic_Rock 스크립트 비활성화
+        Rock.transform.parent = player; // 플레이어의 자식 오브젝트로 설정하여 플레이어와 함께 이동
+
+        float followDuration = 2.0f; // 플레이어 위에 고정되는 시간
+        float dropDelay = 1.0f; // 떨어지기 전 딜레이
+
+        yield return new WaitForSeconds(followDuration);
+        anime.SetTrigger("doMagic_rock_fire");
+        Rock.transform.parent = null;
+        Rock.GetComponent<Magic_Rock>().enabled = true; ; 
+        Rock.GetComponent<Magic_Rock>().StartFalling(); // Magic_Rock이 떨어지도록 호출
+
+        yield return new WaitForSeconds(dropDelay);
+
+        StartCoroutine(BossMagicProcess());
+    }
+
+
     void Return()
     {
         if(Vector3.Distance(transform.position, player.position) < maxDistanceFromPlayer)

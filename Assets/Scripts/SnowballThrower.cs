@@ -9,7 +9,6 @@ public class SnowballThrower : MonoBehaviour
     public int numPoints = 30;
     public LineRenderer lineRenderer;
     public GameObject snowballPrefab;
-    public LayerMask destroyLayer;
 
     private float currentHoldTime;
     private bool isThrowing;
@@ -77,11 +76,9 @@ public class SnowballThrower : MonoBehaviour
         Vector3 initialPosition = transform.position + throwDirection * forwardOffset;
 
         GameObject snowball = Instantiate(snowballPrefab, initialPosition, Quaternion.identity);
+        snowball.SetActive(true);
 
         Rigidbody rb = snowball.GetComponent<Rigidbody>();
         rb.AddForce(throwDirection * throwPower, ForceMode.Impulse);
-
-        DestroySnowball destroyOnCollision = snowball.GetComponent<DestroySnowball>(); // 파괴시킬 레이어설정 및 스노우볼 오브젝트에DestroyOnCollision스크립트 적용 필요
-        destroyOnCollision.SetDestroyLayer(destroyLayer);
     }
 }
