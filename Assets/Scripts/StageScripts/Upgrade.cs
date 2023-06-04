@@ -12,12 +12,14 @@ public class Upgrade : MonoBehaviour
     public TMP_Text attackPowerText;
     public TMP_Text specialSkillText;
 
+    public TMP_Text totalStarText;
+
     private int moveSpeed = 0;
     private int attackSpeed = 0;
     private int health = 0;
     private int attackPower = 0;
     private int SpecialSkill = 0;
-
+    private int totalStar = 0;
     public const int maxValue = 4; // ÃÖ´ë °ª
 
     void Start()
@@ -32,6 +34,7 @@ public class Upgrade : MonoBehaviour
         if (moveSpeed < maxValue)
         {
             moveSpeed += 1;
+            totalStar -= 1;
             SaveStats();
             UpdateUI();
         }
@@ -42,6 +45,8 @@ public class Upgrade : MonoBehaviour
         if (attackSpeed < maxValue)
         {
             attackSpeed += 1;
+            totalStar -= 1;
+
             SaveStats();
             UpdateUI();
         }
@@ -52,6 +57,7 @@ public class Upgrade : MonoBehaviour
         if (health < maxValue)
         {
             health += 1;
+            totalStar -= 1;
             SaveStats();
             UpdateUI();
         }
@@ -62,6 +68,8 @@ public class Upgrade : MonoBehaviour
         if(attackPower < maxValue)
         {
             attackPower += 1;
+            totalStar -= 1;
+
             SaveStats();
             UpdateUI();
         }
@@ -72,6 +80,8 @@ public class Upgrade : MonoBehaviour
         if(SpecialSkill < maxValue)
         {
             SpecialSkill += 1;
+            totalStar -= 1;
+
             SaveStats();
             UpdateUI();
         }
@@ -79,6 +89,8 @@ public class Upgrade : MonoBehaviour
 
     private void LoadStats()
     {
+        totalStar = PlayerPrefs.GetInt("total_star");
+
         moveSpeed = PlayerPrefs.GetInt("MoveSpeed");
         attackSpeed = PlayerPrefs.GetInt("AttackSpeed");
         health = PlayerPrefs.GetInt("Health");
@@ -88,14 +100,16 @@ public class Upgrade : MonoBehaviour
 
     private void SaveStats()
     {
-        PlayerPrefs.SetFloat("MoveSpeed", moveSpeed);
-        PlayerPrefs.SetFloat("AttackSpeed", attackSpeed);
+        PlayerPrefs.SetInt("total_star", totalStar);
+        PlayerPrefs.SetInt("MoveSpeed", moveSpeed);
+        PlayerPrefs.SetInt("AttackSpeed", attackSpeed);
         PlayerPrefs.SetInt("Health", health);
         PlayerPrefs.SetInt("AttackPower", attackPower);
         PlayerPrefs.SetInt("SpecialSkill", SpecialSkill);
     }
     private void UpdateUI()
     {
+        totalStarText.text = totalStar.ToString();
         moveSpeedText.text = "(" + moveSpeed.ToString() + "/" + maxValue.ToString() + ")";
         attackSpeedText.text = "(" + attackSpeed.ToString() + "/" + maxValue.ToString() + ")";
         healthText.text = "(" + health.ToString() + "/" + maxValue.ToString() + ")";

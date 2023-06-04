@@ -15,7 +15,7 @@ public class StageLock : MonoBehaviour
     {
         Button[] stages = stageNumObject.GetComponentsInChildren<Button>();
 
-
+        PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("stage_star_0", 0);
         //PlayerPrefs.SetInt("stage_star_1", 0);
         //PlayerPrefs.SetInt("stage_star_2", 0);
@@ -23,6 +23,7 @@ public class StageLock : MonoBehaviour
         //PlayerPrefs.SetInt("stage_star_4", 0);
         //PlayerPrefs.SetInt("stage", 0); // 기본으로 0으로 설정되어있음 , 스테이지 5까지 열고싶으면 ("stage",4) 를 주시면됩니다. 
         clearStage = PlayerPrefs.GetInt("stage");
+
         
         Debug.Log(clearStage.ToString());
 
