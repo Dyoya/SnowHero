@@ -87,6 +87,11 @@ https://blog.naver.com/raruz/222852771902
 - `Magic_ball`, `Magic_spear`, `Magic_rock` 스크립트 추가
     -> 보스 공격 스킬 수정 및 추가 예정
 
+`v0.1.3` (18:35)
+- `EnemyFSM` 스크립트에 애니메이션 부분 추가
+- `Enemy/` 내에 완성된 enemy 객체 및 애니메이터 추가
+- `HitEvent` 스크립트 추가
+
 ## 스크립트 정보
 - `CamRotate`
     플레이어의 화면 회전(마우스)
@@ -96,6 +101,9 @@ https://blog.naver.com/raruz/222852771902
 
 - `GameManager`
     게임 진행 요소를 관리하는 스크립트
+
+- `HitEvent`
+    플레이어 피격 이벤트 관리
 
 - `Mainmenu`
     메인 메뉴

@@ -51,7 +51,6 @@ public class EnemyFSM : MonoBehaviour
 
     Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
         isLook = true;
@@ -78,7 +77,6 @@ public class EnemyFSM : MonoBehaviour
         anim = transform.GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
 
     void Update()
     {
@@ -125,7 +123,7 @@ public class EnemyFSM : MonoBehaviour
 
             anim.SetTrigger("IdleToMove");
         }
-        if(currentTime > healDelay) //
+        if(currentTime > healDelay) 
         {
             hp += 2;
             currentTime = 0;
@@ -140,9 +138,11 @@ public class EnemyFSM : MonoBehaviour
         {
             m_State = EnemyState.Return;
             print("상태 전환 : Move -> Return !!");
+            anim.SetTrigger("MoveToReturn");
         }
         else if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
+            //transform.forward = (player.position - transform.position).normalized;
             agent.SetDestination(player.position);
         }
         else
@@ -150,27 +150,33 @@ public class EnemyFSM : MonoBehaviour
             agent.enabled = false;
             m_State = EnemyState.Attack;
             print("상태 전환: Move -> Attack !!");
-            //currentTime = attackDelay;
+            anim.SetTrigger("MoveToAttackdelay");
         }
     }
 
     IEnumerator AttackProcess() //
     {
         yield return new WaitForSeconds(0.5f);
-        player.GetComponent<Player>().Damage(attackPower);
+        anim.SetTrigger("StartAttack");
+        //player.GetComponent<Player>().Damage(attackPower);
+        transform.forward = (player.position - transform.position).normalized;
         print("공격!");
+    }
+    public void AttackAction()
+    {
+        player.GetComponent<Player>().Damage(attackPower);
     }
     void Attack()
     {
         if(Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            //currentTime += Time.deltaTime;
-            if (currentTime >= attackDelay && enemyType != Type.Boss)
+            //이부분 차후 수정 필요!
+            if (currentTime >= attackDelay && enemyType == Type.Normal)
             {
                 StartCoroutine(AttackProcess());
                 currentTime = 0;
             }
-            else
+            else if (enemyType == Type.Boss && currentTime >= attackDelay)
             {
                 if (coroutine == null)
                 coroutine = StartCoroutine(BossMagicProcess());
@@ -182,6 +188,7 @@ public class EnemyFSM : MonoBehaviour
             agent.enabled = true;
             m_State = EnemyState.Move;
             print("상태 전환: Attack -> Move !!");
+            anim.SetTrigger("AttackToMove");
             currentTime = 0;
         }
     }
@@ -265,6 +272,7 @@ public class EnemyFSM : MonoBehaviour
         {
             m_State = EnemyState.Move;
             print("상태 전환: Return -> Move !!");
+            anim.SetTrigger("ReturnToMove");
         }
         else if (Vector3.Distance(transform.position, originPos) > 0.5f)
         {
@@ -278,6 +286,7 @@ public class EnemyFSM : MonoBehaviour
             agent.enabled = false;
             m_State = EnemyState.Idle;
             print("상태 전환 : Return -> Idle");
+            anim.SetTrigger("ReturnToIdle");
         }
     }
     void Damaged()
@@ -305,11 +314,13 @@ public class EnemyFSM : MonoBehaviour
             m_State = EnemyState.Damaged;
             Damaged();
             print("상태 전환: Any State -> Damaged");
+            anim.SetTrigger("Damaged");
         }
         else
         {
             m_State = EnemyState.Die;
             print("상태 전환: Any State -> Die");
+            anim.SetTrigger("Die");
             Die();
         }
     }
