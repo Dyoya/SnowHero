@@ -10,36 +10,62 @@ public class GameManager : MonoBehaviour
 {
     public int nowstage;
 
-    public Text UIStage;
-    public GameObject ToMainButton; // 메인으로 이동 버튼
+    public TMP_Text UIStage;
+    public TMP_Text remainMonsterText;
 
-    // 결과창 버튼
-    public GameObject NextStageButton; // 다음 스테이지로 이동 버튼
-    public GameObject ResultToMainButton; // 결과창에서 메인으로 이동 버튼
-    public GameObject RestartButton; // 현재 스테이지 재시작 버튼
+    public GameObject GameClearUI;
 
+
+    public float totalTime = 180f;
+    public TMP_Text timerText;
+    private float currentTime;
+    private int monsterCount;
 
     private void Start()
     {
-        nowstage = 0;
-        PlayerRePosition(nowstage);
-        
-        UIStage.text = "STAGE : " + nowstage.ToString();
+        currentTime = totalTime;
+        UpdateTimerText();
+        InvokeRepeating("UpdateTimer", 1f, 1f); // 1초마다 UpdateTimer 함수 호출
+        //PlayerRePosition(nowstage);
+
+        UIStage.text = "STAGE " + nowstage.ToString();
     }
+
+
     public void NextStage()
     {
-
-        Debug.Log("게임 클리어!");
-        ToMainButton.SetActive(false);
-        NextStageButton.SetActive(true);
-        ResultToMainButton.SetActive(true);
-        RestartButton.SetActive(true);
-
         int temp = 0;
         PlayerPrefs.GetInt("stage", temp);
 
-        if(nowstage > temp)
-           PlayerPrefs.SetInt("stage", nowstage); // PlayerPrefs의 stage에 클리어한 마지막 스테이지 저장
+        if (nowstage > temp)
+            PlayerPrefs.SetInt("stage", nowstage); // PlayerPrefs의 stage에 클리어한 마지막 스테이지 저장
+    }
+    private void UpdateTimer() // gameClear조건 검사와 타이머 역할
+    {
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
+        monsterCount = monsters.Length;
+
+        remainMonsterText.text = monsterCount.ToString();
+        currentTime--;
+        UpdateTimerText();
+        if (monsterCount <= 0)
+        {
+            GameClearUI.SetActive(true);
+            NextStage();
+        }
+        if (currentTime <= 0f)
+        {
+            // 타이머가 종료되었을 때의 동작
+            CancelInvoke("UpdateTimer");
+            Debug.Log("타이머 종료");
+        }
+    }
+    private void UpdateTimerText()
+    {
+
+        int minutes = Mathf.FloorToInt(currentTime / 60f);
+        int seconds = Mathf.FloorToInt(currentTime % 60f);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void PlayerRePosition(int stage)
     {

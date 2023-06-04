@@ -99,7 +99,10 @@ https://blog.naver.com/raruz/222852771902
 - `Enemy/` 내에 완성된 enemy 객체 `Dog` 및 애니메이터 `DogAnim` 추가
 - `HitEvent` 스크립트 추가
 
-
+### [2023-06-04]
+`v0.1.4` (21:27)
+- `GameManager`에서 게임클리어 , 죽었을경우 UI 출력 및 버튼연결 추가, 스테이지 관련 스크립트 완료
+- `Player` 에서 피격 이펙트 , 체력바 가 추가되었습니다.
 
 ## 스크립트 정보
 - `CamRotate`

@@ -15,7 +15,7 @@ public class StageLock : MonoBehaviour
     {
         Button[] stages = stageNumObject.GetComponentsInChildren<Button>();
 
-        PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteAll();
         //PlayerPrefs.SetInt("stage_star_0", 0);
         //PlayerPrefs.SetInt("stage_star_1", 0);
         //PlayerPrefs.SetInt("stage_star_2", 0);
