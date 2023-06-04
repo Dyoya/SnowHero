@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Magic_spear : MonoBehaviour
 {
     public int damage;
     public Transform target;
     Transform player;
-    NavMeshAgent agent;
-    bool isTriggered = false;
-    float time = 0.0f;
+    bool isDestroyed = false;
+    float speed = 20.0f; // 발사 속도 조절 가능
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isTriggered && other.gameObject.tag == "Player") // 한 번만 처리되도록 isTriggered 변수를 확인
+        if (!isDestroyed && other.gameObject.tag == "Player")
         {
             player.GetComponent<Player>().Damage(damage);
             Destroy(gameObject);
-            isTriggered = true; // 처리된 상태로 변경
+            isDestroyed = true;
         }
     }
 
@@ -29,24 +25,16 @@ public class Magic_spear : MonoBehaviour
         {
             Debug.LogError("Player object not found!");
         }
-        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-
-        if (!agent.enabled)
+        if (target != null)
         {
-            agent.enabled = true;
-        }
-        agent.SetDestination(target.position);
-
-        if (time >= 3)
-        {
-            Destroy(gameObject);
-            Debug.Log("Destroyed");
+            // 플레이어 방향으로 이동
+            Vector3 direction = (target.position - transform.position).normalized;
+            transform.position += direction * speed * Time.deltaTime;
         }
     }
 }
