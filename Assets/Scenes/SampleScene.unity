@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 400205033}
   - component: {fileID: 400205032}
   - component: {fileID: 400205031}
+  - component: {fileID: 400205038}
   - component: {fileID: 400205037}
   - component: {fileID: 400205029}
   - component: {fileID: 400205036}
@@ -668,6 +669,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   hitEffect: {fileID: 0}
+--- !u!114 &400205038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400205028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62a59829872fbf41abbc4e3e46ab96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minThrowPower: 5
+  maxThrowPower: 20
+  maxHoldTime: 2
+  forwardOffset: 1
+  numPoints: 30
+  lineRenderer: {fileID: 0}
+  snowballPrefab: {fileID: 2131116623262805476, guid: 573aadb69ba932d418c01dc2da68addf, type: 3}
+  destroyLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &421672898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4243724423293762, guid: c07f24e35f07ce74ba43afa35d48adf7, type: 3}

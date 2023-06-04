@@ -49,6 +49,8 @@ public class EnemyFSM : MonoBehaviour
 
     NavMeshAgent agent;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,8 @@ public class EnemyFSM : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
         agent.speed = moveSpeed;
+
+        anim = transform.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -118,6 +122,8 @@ public class EnemyFSM : MonoBehaviour
             agent.enabled = true;
             m_State = EnemyState.Move;
             print("상태 전환: Idle -> Move !!");
+
+            anim.SetTrigger("IdleToMove");
         }
         if(currentTime > healDelay) //
         {
