@@ -14,6 +14,8 @@ https://blog.naver.com/raruz/222852771902
 - 유니티 버전
 `2021.3.21f1`
 
+
+
 ## 수정 내역
 ### [2023-05-28]
 `v0.0.1` (13:40)
@@ -27,6 +29,7 @@ https://blog.naver.com/raruz/222852771902
 - 스테이지와 UI에 관련된 `StageScripts/` 내에 스크립트 `Mainmenu`, `StageButtonEvent`, `StageLock` 추가
 - 전체적인 게임 정보(스테이지 진행)를 다루는 `GameManager` 추가
 - `Scenes/` 내에 스테이지 씬 생성
+
 
 ### [2023-05-29]
 `v0.0.3` (13:20)
@@ -48,6 +51,7 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.7` (22:50)
 - 스크립트 `SnowballThrower`, `DestroySnowball` 파일  추가
 
+
 ### [2023-06-01]
 `v0.0.8` (11:03)
 - SampleScenes, 1Stage 꾸미기
@@ -55,11 +59,13 @@ https://blog.naver.com/raruz/222852771902
 `v0.0.9` (13:07)
 - Audio, Effect, Item, Monster 에셋 추가
 
+
 ### [2023-06-03]
 `v0.0.10` (15:40)
 - `GrabObject`, `Gun` 스크립트 삭제
 - `Oculus Integration` 패키지 설치 필요
 - `Asset/Oculus/` 이그노어 등록
+
 
 ### [2023-06-03]
 `v0.1.0` (22:06)
@@ -78,6 +84,7 @@ https://blog.naver.com/raruz/222852771902
 - PlayerPref에 Int형 변수 "total_star" 추가 
 - `GameManager` 참고하여 SampleScene에 UI 추가하겠습니다. 
 
+
 ### [2023-06-04]
 `v0.1.2` (17:10)
 - `EnemyFSM` 스크립트 수정 및 추가
@@ -89,8 +96,10 @@ https://blog.naver.com/raruz/222852771902
 
 `v0.1.3` (18:35)
 - `EnemyFSM` 스크립트에 애니메이션 부분 추가
-- `Enemy/` 내에 완성된 enemy 객체 및 애니메이터 추가
+- `Enemy/` 내에 완성된 enemy 객체 `Dog` 및 애니메이터 `DogAnim` 추가
 - `HitEvent` 스크립트 추가
+
+
 
 ## 스크립트 정보
 - `CamRotate`
