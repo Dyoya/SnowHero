@@ -5,17 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyFSM : MonoBehaviour
 {
-    public enum Type { Normal, Boss };
-    public Type enemyType;
-    public GameObject Magic_ball;
-    public GameObject Magic_spear;
-    public GameObject Magic_rock;
-    private Coroutine coroutine;
-    public Animator anime;
-    public Transform Ballport;
-    Vector3 lookVec;
-    bool isLook;
-
     enum EnemyState
     {
         Idle,
@@ -31,11 +20,12 @@ public class EnemyFSM : MonoBehaviour
     public float attackDistance = 4f; // 플레이어 공격 범위
     public float moveSpeed = 9f; // Enemy 이동 속도
 
-    Transform player;
+    public Transform player;
     CharacterController cc;
 
+    //공격 속도 관리
     float currentTime = 0;
-    float attackDelay = 1.5f; //
+    float attackDelay = 1.5f; 
 
     public int attackPower = 3; // Enemy 공격력
 
@@ -43,17 +33,22 @@ public class EnemyFSM : MonoBehaviour
     Quaternion originRot;
     public float maxDistanceFromPlayer = 40f; //플레이어 추격 최대 범위
 
+    //몬스터 체력 정보
     public int hp;
     public int maxhp = 15;
     public float healDelay = 1f;
 
+    //네비게이션
     NavMeshAgent agent;
 
+    //애니메이터
     Animator anim;
+
+    //보스 패턴 스크립트
+    Boss_Wizard bw;
 
     void Start()
     {
-        isLook = true;
         m_State = EnemyState.Idle;
         player = GameObject.Find("Player").transform;
 
@@ -64,31 +59,24 @@ public class EnemyFSM : MonoBehaviour
 
         hp = maxhp;
 
-        if (enemyType == Type.Boss)
-        {
-            hp = 300;
-            attackDistance = 20f;
-        }
-
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
         agent.speed = moveSpeed;
 
         anim = transform.GetComponentInChildren<Animator>();
+
+        //enemy 이름이 Boss_Wizard이면
+        if(this.gameObject.name == "Boss_Wizard")
+        {
+            bw = GetComponent<Boss_Wizard>();
+            
+        }
     }
 
 
     void Update()
     {
         currentTime += Time.deltaTime; //
-
-        if (isLook)
-        {
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            lookVec = new Vector3 (h, 0, v) * 5f;
-            transform.LookAt(player.position + lookVec);
-        }
 
         switch (m_State)
         {
@@ -134,17 +122,19 @@ public class EnemyFSM : MonoBehaviour
     }
     void Move()
     {
+        //플레이어가 추격 범위를 벗어남
         if(Vector3.Distance(transform.position, player.position) > maxDistanceFromPlayer)
         {
             m_State = EnemyState.Return;
             print("상태 전환 : Move -> Return !!");
             anim.SetTrigger("MoveToReturn");
         }
+        //플레이어가 추격 범위 안에 있음
         else if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
-            //transform.forward = (player.position - transform.position).normalized;
             agent.SetDestination(player.position);
         }
+        //플레이어가 공격 범위 안에 있음
         else
         {
             agent.enabled = false;
@@ -170,17 +160,19 @@ public class EnemyFSM : MonoBehaviour
     {
         if(Vector3.Distance(transform.position, player.position) < attackDistance)
         {
-            //이부분 차후 수정 필요!
-            if (currentTime >= attackDelay && enemyType == Type.Normal)
+            //계속 플레이어 방향 바라보도록
+            transform.forward = (player.position - transform.position).normalized;
+
+            if (currentTime >= attackDelay)
             {
                 StartCoroutine(AttackProcess());
                 currentTime = 0;
             }
-            else if (enemyType == Type.Boss && currentTime >= attackDelay)
+            //마법사 보스라면 패턴 실시
+            else if (this.gameObject.name == "Boss_Wizard")
             {
-                if (coroutine == null)
-                coroutine = StartCoroutine(BossMagicProcess());
-                currentTime = 0;
+                //bw.useSkill();
+                //while (!bw.isSkill) ;
             }
         }
         else
@@ -192,79 +184,6 @@ public class EnemyFSM : MonoBehaviour
             currentTime = 0;
         }
     }
-
-    IEnumerator BossMagicProcess()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        int randAction = Random.Range(0, 3);
-        switch (randAction)
-        {
-            case 0:
-                StartCoroutine(Attack_Magic_spear());
-                break;
-            case 1:
-                StartCoroutine(Attack_Magic_ball());
-                break;
-            case 2:
-                StartCoroutine(Attack_Magic_rock());
-                break;
-        }
-    }
-
-    IEnumerator Attack_Magic_spear()
-    {
-        anime.SetTrigger("doMagic_spear");
-        yield return new WaitForSeconds(0.2f);
-        GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
-        Spear.SetActive(true);
-        print("magic_spear!");
-        yield return new WaitForSeconds(2.5f);
-
-        StartCoroutine(BossMagicProcess());
-    }
-
-    IEnumerator Attack_Magic_ball()
-    {
-        anime.SetTrigger("doMagic_ball");
-        yield return new WaitForSeconds(0.2f);
-        GameObject Ball = Instantiate(Magic_ball, Ballport.position, Ballport.rotation);
-        Ball.SetActive(true);
-        print("magic_ball!");
-        yield return new WaitForSeconds(2.5f);
-
-        StartCoroutine(BossMagicProcess());
-    }
-
-    IEnumerator Attack_Magic_rock()
-    {
-        print("magic_rock!");
-        anime.SetTrigger("doMagic_rock");
-        yield return new WaitForSeconds(0.2f);
-
-        float offsetHeight = 20f; // 플레이어 머리 위로의 오프셋 높이
-
-        Vector3 spawnPosition = player.position + Vector3.up * offsetHeight;
-
-        GameObject Rock = Instantiate(Magic_rock, spawnPosition, Quaternion.identity);
-        Rock.SetActive(true);
-        Rock.GetComponent<Magic_Rock>().enabled = false; // Magic_Rock 스크립트 비활성화
-        Rock.transform.parent = player; // 플레이어의 자식 오브젝트로 설정하여 플레이어와 함께 이동
-
-        float followDuration = 2.0f; // 플레이어 위에 고정되는 시간
-        float dropDelay = 1.0f; // 떨어지기 전 딜레이
-
-        yield return new WaitForSeconds(followDuration);
-        anime.SetTrigger("doMagic_rock_fire");
-        Rock.transform.parent = null;
-        Rock.GetComponent<Magic_Rock>().enabled = true; ; 
-        Rock.GetComponent<Magic_Rock>().StartFalling(); // Magic_Rock이 떨어지도록 호출
-
-        yield return new WaitForSeconds(dropDelay);
-
-        StartCoroutine(BossMagicProcess());
-    }
-
 
     void Return()
     {
