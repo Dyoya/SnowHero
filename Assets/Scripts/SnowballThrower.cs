@@ -40,9 +40,9 @@ public class SnowballThrower : MonoBehaviour
         float normalizedHoldTime = currentHoldTime / maxHoldTime;
         float throwPower = Mathf.Lerp(minThrowPower, maxThrowPower, normalizedHoldTime); // 던지는 힘 
 
-        Vector3 throwDirection = Camera.main.transform.forward.normalized;
+        Vector3 throwDirection = ARAVRInput.RHandDirection;
 
-        Vector3 initialPosition = transform.position + throwDirection * forwardOffset; // forwardOffset값을 조정해서 던지는 시작 위치 맞추자
+        Vector3 initialPosition = ARAVRInput.RHandPosition + throwDirection; // forwardOffset값을 조정해서 던지는 시작 위치 맞추자
 
         lineRenderer.positionCount = 1;
         lineRenderer.SetPosition(0, initialPosition);   // 라인 렌더러 초기 위치
@@ -71,10 +71,9 @@ public class SnowballThrower : MonoBehaviour
         float normalizedHoldTime = currentHoldTime / maxHoldTime;
         float throwPower = Mathf.Lerp(minThrowPower, maxThrowPower, normalizedHoldTime);
 
-        Vector3 throwDirection = Camera.main.transform.forward.normalized;
+        Vector3 throwDirection = ARAVRInput.RHandDirection;
 
-        Vector3 initialPosition = transform.position + throwDirection * forwardOffset;
-
+        Vector3 initialPosition = ARAVRInput.RHandPosition + throwDirection;
         GameObject snowball = Instantiate(snowballPrefab, initialPosition, Quaternion.identity);
         snowball.SetActive(true);
 
