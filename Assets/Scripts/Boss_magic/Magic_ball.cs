@@ -1,25 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Magic_ball : MonoBehaviour
 {
     public int damage;
     Rigidbody rb;
-    float scaleValue = 0.1f;
+    float startScale = 1f;
+    float targetScale = 7f;
+    float scaleDuration = 2f;
     float angularPower = 2;
     bool isShoot;
     Transform player;
     bool isTriggered = false;
+    float scaleValue;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Terrain")
         {
-            Destroy(gameObject, 3f);
+            // 땅에 닿을 때까지 파괴하지 않음
+            return;
         }
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +33,7 @@ public class Magic_ball : MonoBehaviour
             isTriggered = true;
         }
     }
+
     void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -38,29 +42,42 @@ public class Magic_ball : MonoBehaviour
             Debug.LogError("Player object not found!");
         }
         rb = GetComponent<Rigidbody>();
-        StartCoroutine(GainPowerTimer());
+        StartCoroutine(GrowBeforeRoll());
+    }
+
+    IEnumerator GrowBeforeRoll()
+    {
+        float currentTime = 0f;
+        float startScaleValue = startScale;
+
+        while (currentTime < scaleDuration)
+        {
+            currentTime += Time.deltaTime;
+            float t = currentTime / scaleDuration;
+            scaleValue = Mathf.Lerp(startScaleValue, targetScale, t);
+            transform.localScale = Vector3.one * scaleValue;
+            yield return null;
+        }
         StartCoroutine(GainPower());
     }
 
-    IEnumerator GainPowerTimer()
-    {
-        yield return new WaitForSeconds(2.2f);
-        isShoot = true;
-    }
     IEnumerator GainPower()
     {
-        while (!isShoot)
+        float elapsedTime = 0f;
+        while (elapsedTime < 2f)
         {
-            angularPower += 0.02f;
-            scaleValue += 0.005f;
-            transform.localScale = Vector3.one * scaleValue;
+            angularPower += 0.01f;
 
-            Vector3 direction = player.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            rb.MoveRotation(rotation);
+            // 회전력을 가하기 위해 Quaternion.Euler을 사용하여 회전값을 계산합니다.
+            Quaternion rotation = Quaternion.Euler(angularPower, 0f, 0f);
+            rb.MoveRotation(rb.rotation * rotation);
 
-            rb.AddTorque(transform.right * angularPower, ForceMode.Acceleration);
+            Vector3 playerDirection = player.position - transform.position;
+            rb.AddForce(playerDirection.normalized * angularPower, ForceMode.Acceleration);
+
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
     }
+
 }

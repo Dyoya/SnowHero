@@ -12,7 +12,7 @@ public class SnowballThrower : MonoBehaviour
 
     private float currentHoldTime;
     private bool isThrowing;
-
+     
     void Update()
     {
         if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch))
@@ -43,6 +43,10 @@ public class SnowballThrower : MonoBehaviour
         Vector3 throwDirection = ARAVRInput.RHandDirection;
 
         Vector3 initialPosition = ARAVRInput.RHandPosition + throwDirection; // forwardOffset값을 조정해서 던지는 시작 위치 맞추자
+
+
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
 
         lineRenderer.positionCount = 1;
         lineRenderer.SetPosition(0, initialPosition);   // 라인 렌더러 초기 위치

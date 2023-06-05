@@ -5,11 +5,11 @@ using UnityEngine;
 public class DestroySnowball : MonoBehaviour
 {
     public int damage;
-    // Transform enemy; // 눈을 파괴시킬 레이어
+    public LayerMask terrainLayer; // Transform enemy; // 눈을 파괴시킬 레이어
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Terrain")
+        if (terrainLayer == (terrainLayer | (1 << collision.gameObject.layer)))
         {
             Destroy(gameObject);
         }

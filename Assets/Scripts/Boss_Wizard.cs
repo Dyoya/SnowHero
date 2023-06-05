@@ -11,7 +11,8 @@ public class Boss_Wizard : MonoBehaviour
 
     public float inCooldown = 5f;
     public float currentTime;
-
+    public float floatHeight = 10f; //보스가 공중에 뜨는 높이
+    public float floatDuration = 1.5f; // 보스가 공중으로 날아오르는 시간
     public GameObject Magic_ball;
     public GameObject Magic_spear;
     public GameObject Magic_rock;
@@ -39,6 +40,7 @@ public class Boss_Wizard : MonoBehaviour
         };
 
         isSkill = false;
+        StartCoroutine(Attack_Magic_ball());
     }
 
     void Update()
@@ -46,7 +48,7 @@ public class Boss_Wizard : MonoBehaviour
         currentTime += Time.deltaTime;
 
         //쿨타임 업데이트
-        foreach(BossSkill skill in skills)
+        foreach (BossSkill skill in skills)
         {
             skill.UpdataCooldown(Time.deltaTime);
         }
@@ -55,9 +57,9 @@ public class Boss_Wizard : MonoBehaviour
         int highestPriority = int.MaxValue;
 
         //다음에 사용할 스킬 선택
-        foreach(BossSkill skill in skills)
+        foreach (BossSkill skill in skills)
         {
-            if(skill.IsReady() && skill.priority < highestPriority)
+            if (skill.IsReady() && skill.priority < highestPriority)
             {
                 highestPriority = skill.priority;
                 nextSkill = skill;
@@ -97,7 +99,7 @@ public class Boss_Wizard : MonoBehaviour
     }
     IEnumerator Attack_Magic_spear()
     {
-        anime.SetTrigger("doMagic_spear");
+        anime.SetTrigger("Magic_spear");
         yield return new WaitForSeconds(0.2f);
         GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
         Spear.SetActive(true);
@@ -106,16 +108,51 @@ public class Boss_Wizard : MonoBehaviour
 
     IEnumerator Attack_Magic_ball()
     {
-        anime.SetTrigger("doMagic_ball");
+        Vector3 startPos = transform.position;
+        anime.SetTrigger("Fly_Start");
+        yield return new WaitForSeconds(0.4f);
+        anime.SetTrigger("Fly");
         yield return new WaitForSeconds(0.2f);
-        GameObject Ball = Instantiate(Magic_ball, Ballport.position, Ballport.rotation);
+
+        Vector3 targetPos = startPos + Vector3.up * floatHeight; // 원하는 높이로 상승
+        float currentTime = 0f;
+
+        while (currentTime < floatDuration)
+        {
+            currentTime += Time.deltaTime;
+            float t = currentTime / floatDuration;
+            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            yield return null;
+        }
+
+        anime.SetTrigger("Incant_Magic_Ball");
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject Ball = Instantiate(Magic_ball, startPos + Vector3.up * 2.3f, Quaternion.identity);
         Ball.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+
+        yield return new WaitForSeconds(2.0f);
+
+        anime.SetTrigger("Magic_Ball");
+        yield return new WaitForSeconds(0.3f);
+        anime.SetTrigger("Desending");
+
+        currentTime = 0f;
+        while (currentTime < floatDuration)
+        {
+            currentTime += Time.deltaTime;
+            float t = currentTime / floatDuration;
+            transform.position = Vector3.Lerp(targetPos, startPos, t);
+            yield return null;
+        }
+
+        anime.SetTrigger("Landing");
     }
+
 
     IEnumerator Attack_Magic_rock()
     {
-        anime.SetTrigger("doMagic_rock");
+        anime.SetTrigger("incant_Magic_rock");
         yield return new WaitForSeconds(0.2f);
 
         float offsetHeight = 20f; // 플레이어 머리 위로의 오프셋 높이
@@ -131,7 +168,7 @@ public class Boss_Wizard : MonoBehaviour
         float dropDelay = 1.0f; // 떨어지기 전 딜레이
 
         yield return new WaitForSeconds(followDuration);
-        anime.SetTrigger("doMagic_rock_fire");
+        anime.SetTrigger("Magic_rock");
         Rock.transform.parent = null;
         Rock.GetComponent<Magic_Rock>().enabled = true; ;
         Rock.GetComponent<Magic_Rock>().StartFalling(); // Magic_Rock이 떨어지도록 호출
