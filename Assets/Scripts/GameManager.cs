@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text UIStage;
     public TMP_Text remainMonsterText;
-
-    public GameObject GameClearUI;
+    public Transform ResultCamTransform;
+    private GameObject gamedata;
+    //public GameObject GameClearUI;
+    public GameObject Player;
 
 
     public float totalTime = 180f;
@@ -23,12 +25,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        currentTime = totalTime;
-        UpdateTimerText();
-        InvokeRepeating("UpdateTimer", 1f, 1f); // 1초마다 UpdateTimer 함수 호출
-        //PlayerRePosition(nowstage);
+        gamedata = GameObject.Find("GameData");
+        if (nowstage != 0)
+        {
+            currentTime = totalTime;
+            UpdateTimerText();
+            InvokeRepeating("UpdateTimer", 1f, 1f); // 1초마다 UpdateTimer 함수 호출
 
-        UIStage.text = "STAGE " + nowstage.ToString();
+            UIStage.text = "STAGE " + nowstage.ToString();
+        }
+        else
+        {
+            int result = PlayerPrefs.GetInt("result");
+            PlayerRePosition(result);
+            PlayerPrefs.SetInt("result", 0);
+            Debug.Log(gamedata.GetComponent<GameData>().HP);
+            Debug.Log(gamedata.GetComponent<GameData>().Timer);
+        }
+
     }
 
 
@@ -50,8 +64,11 @@ public class GameManager : MonoBehaviour
         UpdateTimerText();
         if (monsterCount <= 0)
         {
-            GameClearUI.SetActive(true);
             NextStage();
+            PlayerPrefs.SetInt("result", 1);
+            gamedata.GetComponent<GameData>().SetTimer(currentTime);
+            gamedata.GetComponent<GameData>().SetHP(Player.GetComponent<Player>().hp);
+            SceneManager.LoadScene(0);
         }
         if (currentTime <= 0f)
         {
@@ -72,19 +89,8 @@ public class GameManager : MonoBehaviour
         switch(stage)
         {
             case 1:
-                // Player를 1스테이지 시작 좌표로 이동
-                break;
-            case 2:
                 // Player를 2스테이지 시작 좌표로 이동
-                break;
-            case 3:
-                // Player를 3스테이지 시작 좌표로 이동
-                break;
-            case 4:
-                // Player를 4스테이지 시작 좌표로 이동
-                break;
-            default:
-                // 시작 좌표 default 값으로 이동
+                GameObject.Find("OVRCameraRig").transform.position = ResultCamTransform.position;
                 break;
         }    
     }
