@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyFSM : MonoBehaviour
 {
-    enum EnemyState
+    public enum EnemyState
     {
         Idle,
         Move,
@@ -14,7 +15,7 @@ public class EnemyFSM : MonoBehaviour
         Damaged,
         Die
     }
-    EnemyState m_State;
+    public EnemyState m_State;
 
     public float findDistance = 30f; // 플레이어 발견 범위
     public float attackDistance = 4f; // 플레이어 공격 범위
@@ -25,7 +26,7 @@ public class EnemyFSM : MonoBehaviour
 
     //공격 속도 관리
     float currentTime = 0;
-    float attackDelay = 1.5f; 
+    public float attackDelay = 1.5f; 
 
     public int attackPower = 3; // Enemy 공격력
 
@@ -132,7 +133,30 @@ public class EnemyFSM : MonoBehaviour
         //플레이어가 추격 범위 안에 있음
         else if (Vector3.Distance(transform.position, player.position) > attackDistance)
         {
-            agent.SetDestination(player.position);
+            //마법사 보스이며, 다음 패턴이 활성화 되었을 경우
+            if (this.gameObject.name == "Boss_Wizard" && bw.isSkill)
+            {
+                agent.enabled = false;
+
+                //계속 플레이어 방향 바라보도록
+                transform.forward = (player.position - transform.position).normalized;
+                StartCoroutine(bw.useSkill());
+            }
+            else
+            {
+                //마법사 보스이며, 스킬 사용 중이라면 제자리에
+                if (this.gameObject.name == "Boss_Wizard" && bw.is_ing)
+                {
+                    agent.enabled = false;
+                    transform.forward = (player.position - transform.position).normalized;
+                }
+                //플레이어 추격
+                else
+                {
+                    agent.enabled = true;
+                    agent.SetDestination(player.position);
+                }
+            }
         }
         //플레이어가 공격 범위 안에 있음
         else
@@ -144,11 +168,10 @@ public class EnemyFSM : MonoBehaviour
         }
     }
 
-    IEnumerator AttackProcess() //
+    public IEnumerator AttackProcess() //
     {
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("StartAttack");
-        //player.GetComponent<Player>().Damage(attackPower);
         transform.forward = (player.position - transform.position).normalized;
         print("공격!");
     }
@@ -158,6 +181,7 @@ public class EnemyFSM : MonoBehaviour
     }
     void Attack()
     {
+        //플레이어가 공격 범위 안에 있으면
         if(Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             //계속 플레이어 방향 바라보도록
@@ -165,14 +189,9 @@ public class EnemyFSM : MonoBehaviour
 
             if (currentTime >= attackDelay)
             {
+                //기본 공격
                 StartCoroutine(AttackProcess());
                 currentTime = 0;
-            }
-            //마법사 보스라면 패턴 실시
-            else if (this.gameObject.name == "Boss_Wizard")
-            {
-                //bw.useSkill();
-                //while (!bw.isSkill) ;
             }
         }
         else

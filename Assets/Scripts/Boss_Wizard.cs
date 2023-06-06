@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss_Wizard : MonoBehaviour
 {
@@ -10,19 +11,22 @@ public class Boss_Wizard : MonoBehaviour
     List<BossSkill> skills;
 
     public float inCooldown = 5f;
-    public float currentTime;
+    public float currentTime = 0;
+
     public float floatHeight = 10f; //보스가 공중에 뜨는 높이
     public float floatDuration = 1.5f; // 보스가 공중으로 날아오르는 시간
+
     public GameObject Magic_ball;
     public GameObject Magic_spear;
     public GameObject Magic_rock;
-    private Coroutine coroutine;
     public Animator anime;
     public Transform Ballport;
 
-    BossSkill nextSkill;
+    public BossSkill nextSkill;
 
-    public bool isSkill;
+    public bool isSkill; //스킬을 사용할 수 있는 상태인가
+
+    public bool is_ing; //스킬을 사용 중인가
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +38,13 @@ public class Boss_Wizard : MonoBehaviour
 
         skills = new List<BossSkill>
         {
-            new BossSkill("매직스피어", 6f, 1),
-            new BossSkill("매직볼", 15f, 2),
-            new BossSkill("매직락", 30f, 3)
+            new BossSkill("매직스피어", 20f, 1),
+            new BossSkill("매직볼", 30f, 2),
+            new BossSkill("매직락", 60f, 3)
         };
 
         isSkill = false;
-        StartCoroutine(Attack_Magic_ball());
+        is_ing = false;
     }
 
     void Update()
@@ -65,51 +69,65 @@ public class Boss_Wizard : MonoBehaviour
                 nextSkill = skill;
             }
         }
-    }
-    public void useSkill()
-    {
-        //스킬 사용
-        if (nextSkill != null && currentTime > 5f)
+
+        if(currentTime >= inCooldown && nextSkill != null)
         {
             isSkill = true;
-            currentTime = 0;
-
-            ExecuteSkill(nextSkill);
-            nextSkill.currentCooldown = nextSkill.cooldown;
+        }
+        else
+        {
             isSkill = false;
         }
     }
-
-    void ExecuteSkill(BossSkill skill)
+    public IEnumerator useSkill()
     {
+        //스킬 사용
+        if (nextSkill != null && nextSkill.IsReady() && currentTime >= inCooldown)
+        {
+            currentTime = 0;
+
+            yield return StartCoroutine(ExecuteSkill(nextSkill));
+
+            nextSkill = null;
+        }
+    }
+
+    IEnumerator ExecuteSkill(BossSkill skill)
+    {
+        is_ing = true;
         switch (skill.name)
         {
             case "매직스피어":
-                StartCoroutine(Attack_Magic_spear());
+                yield return StartCoroutine(Attack_Magic_spear());
                 break;
             case "매직볼":
-                StartCoroutine(Attack_Magic_ball());
+                yield return StartCoroutine(Attack_Magic_ball());
                 break;
             case "매직락":
-                StartCoroutine(Attack_Magic_rock());
+                yield return StartCoroutine(Attack_Magic_rock());
                 break;
         }
+
+        skill.currentCooldown = skill.cooldown;
+        is_ing = false;
 
         Debug.Log("스킬 사용 : " + skill.name);
     }
     IEnumerator Attack_Magic_spear()
     {
-        anime.SetTrigger("Magic_spear");
+        anime.SetTrigger("StartMagicSpear");
         yield return new WaitForSeconds(0.2f);
         GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
         Spear.SetActive(true);
         yield return new WaitForSeconds(2.5f);
+
+        anime.SetTrigger("MagicSpearToMove");
     }
 
     IEnumerator Attack_Magic_ball()
     {
         Vector3 startPos = transform.position;
-        anime.SetTrigger("Fly_Start");
+        anime.SetTrigger("StartMagicBall");
         yield return new WaitForSeconds(0.4f);
         anime.SetTrigger("Fly");
         yield return new WaitForSeconds(0.2f);
@@ -147,11 +165,15 @@ public class Boss_Wizard : MonoBehaviour
         }
 
         anime.SetTrigger("Landing");
+
+        anime.SetTrigger("MagicBallToMove");
     }
 
 
     IEnumerator Attack_Magic_rock()
     {
+        anime.SetTrigger("StartMagicRock");
+
         anime.SetTrigger("incant_Magic_rock");
         yield return new WaitForSeconds(0.2f);
 
@@ -168,11 +190,15 @@ public class Boss_Wizard : MonoBehaviour
         float dropDelay = 1.0f; // 떨어지기 전 딜레이
 
         yield return new WaitForSeconds(followDuration);
-        anime.SetTrigger("Magic_rock");
+
+        //이거 애니메이터에 등록도 안해놓고 코드에 있어! 안쓰면 삭제 ㄱㄱ
+        //anime.SetTrigger("Magic_rock");
+
         Rock.transform.parent = null;
         Rock.GetComponent<Magic_Rock>().enabled = true; ;
         Rock.GetComponent<Magic_Rock>().StartFalling(); // Magic_Rock이 떨어지도록 호출
 
         yield return new WaitForSeconds(dropDelay);
+        anime.SetTrigger("MagicRockToMove");
     }
 }
