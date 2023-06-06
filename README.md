@@ -119,7 +119,8 @@ https://blog.naver.com/raruz/222852771902
 `v0.1.6` (15:35)
 - `EnemyFSM`, `Boss_Wizard` 수정 : 보스가 이제 스킬을 제자리에서 사용!
 - `BossWizardAnim` 수정, 추가 수정 필요
-- `Enemy/` 내에 완성된 enemy 객체 `Slime` 9종 및 애니메이터 `SlimeAnim` 추가
+- `Enemy/` 내에 완성된 enemy 객체 `Slime` 9종, `Mushroom` 및 애니메이터 `SlimeAnim`, `MushroomAnim`추가
+- enemy 경직 추가
 
 
 
