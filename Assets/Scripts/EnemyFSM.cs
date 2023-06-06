@@ -40,7 +40,7 @@ public class EnemyFSM : MonoBehaviour
     public float healDelay = 1f;
 
     //네비게이션
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     //애니메이터
     Animator anim;

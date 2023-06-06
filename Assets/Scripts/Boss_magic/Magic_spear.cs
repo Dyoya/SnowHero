@@ -6,7 +6,8 @@ public class Magic_spear : MonoBehaviour
     public Transform target;
     Transform player;
     bool isDestroyed = false;
-    float speed = 20.0f; // 발사 속도 조절 가능
+    float speed = 30.0f; // 발사 속도 조절 가능
+    public Vector3 direction;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +26,11 @@ public class Magic_spear : MonoBehaviour
         {
             Debug.LogError("Player object not found!");
         }
+        if (target != null)
+        {
+            // 플레이어 방향으로 이동
+            direction = (target.position - transform.position).normalized;
+        }
     }
 
     // Update is called once per frame
@@ -33,7 +39,6 @@ public class Magic_spear : MonoBehaviour
         if (target != null)
         {
             // 플레이어 방향으로 이동
-            Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
         }
     }

@@ -94,18 +94,23 @@ public class Boss_Wizard : MonoBehaviour
 
     IEnumerator ExecuteSkill(BossSkill skill)
     {
-        is_ing = true;
-        switch (skill.name)
+        if (is_ing != true)
         {
-            case "매직스피어":
-                yield return StartCoroutine(Attack_Magic_spear());
-                break;
-            case "매직볼":
-                yield return StartCoroutine(Attack_Magic_ball());
-                break;
-            case "매직락":
-                yield return StartCoroutine(Attack_Magic_rock());
-                break;
+            is_ing = true;
+            switch (skill.name)
+            {
+                case "매직스피어":
+                    yield return StartCoroutine(Attack_Magic_spear());
+                    break;
+                case "매직볼":
+                    fsm.agent.enabled = false;
+                    yield return StartCoroutine(Attack_Magic_ball());
+                    fsm.agent.enabled = true;
+                    break;
+                case "매직락":
+                    yield return StartCoroutine(Attack_Magic_rock());
+                    break;
+            }
         }
 
         skill.currentCooldown = skill.cooldown;
@@ -119,8 +124,7 @@ public class Boss_Wizard : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
         Spear.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
-
+        yield return new WaitForSeconds(0.2f);
         anime.SetTrigger("MagicSpearToMove");
     }
 
@@ -146,15 +150,17 @@ public class Boss_Wizard : MonoBehaviour
         anime.SetTrigger("Incant_Magic_Ball");
         yield return new WaitForSeconds(0.1f);
 
+        print("공 생성 했음");
+
         GameObject Ball = Instantiate(Magic_ball, startPos + Vector3.up * 2.3f, Quaternion.identity);
         Ball.SetActive(true);
 
         yield return new WaitForSeconds(2.0f);
 
         anime.SetTrigger("Magic_Ball");
-        yield return new WaitForSeconds(0.3f);
-        anime.SetTrigger("Desending");
+        yield return new WaitForSeconds(0.7f);
 
+        anime.SetTrigger("Desending");
         currentTime = 0f;
         while (currentTime < floatDuration)
         {
@@ -163,9 +169,8 @@ public class Boss_Wizard : MonoBehaviour
             transform.position = Vector3.Lerp(targetPos, startPos, t);
             yield return null;
         }
-
         anime.SetTrigger("Landing");
-
+        yield return new WaitForSeconds(0.5f);
         anime.SetTrigger("MagicBallToMove");
     }
 
@@ -192,7 +197,7 @@ public class Boss_Wizard : MonoBehaviour
         yield return new WaitForSeconds(followDuration);
 
         //이거 애니메이터에 등록도 안해놓고 코드에 있어! 안쓰면 삭제 ㄱㄱ
-        //anime.SetTrigger("Magic_rock");
+        anime.SetTrigger("Magic_Rock");
 
         Rock.transform.parent = null;
         Rock.GetComponent<Magic_Rock>().enabled = true; ;
