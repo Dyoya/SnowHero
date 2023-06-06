@@ -196,7 +196,6 @@ public class Boss_Wizard : MonoBehaviour
 
         yield return new WaitForSeconds(followDuration);
 
-        //이거 애니메이터에 등록도 안해놓고 코드에 있어! 안쓰면 삭제 ㄱㄱ
         anime.SetTrigger("Magic_Rock");
 
         Rock.transform.parent = null;
