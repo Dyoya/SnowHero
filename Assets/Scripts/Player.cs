@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Player : MonoBehaviour
 {
+    public PostProcessVolume m_Volume;
+    Vignette m_Vignette;
     public int hp = 20;
     int maxHp = 20;
-    public GameObject hitEffect;
+    //public GameObject hitEffect;
     public GameObject GameOverUI;
 
     public GameObject healBarUIPrefab;
@@ -23,7 +26,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        PlayerMoveCP = GetComponent<PlayerMove>();
+        m_Volume.profile.TryGetSettings(out m_Vignette);
+         PlayerMoveCP = GetComponent<PlayerMove>();
         PlayerRotateCP = GetComponent<PlayerRotate>();
         SnowballThrowerCP = GetComponent<SnowballThrower>();
         CamRotateCP = GetComponentInChildren<CamRotate>();
@@ -75,9 +79,11 @@ public class Player : MonoBehaviour
     IEnumerator PlayHitEffect()
     {
 
-        hitEffect.SetActive(true);
+        //hitEffect.SetActive(true);
+        m_Vignette.intensity.Override(0.5f);
         yield return new WaitForSeconds(0.5f);
-        hitEffect.SetActive(false);
+        m_Vignette.intensity.Override(0.0f);
+        //hitEffect.SetActive(false);
     }
    
 }

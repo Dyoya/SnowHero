@@ -11,6 +11,10 @@ public class MainMenu : MonoBehaviour
     public GameObject UpgradeUI;
     public GameObject KeyControlUI;
 
+    public void Start()
+    {
+        
+    }
     // 모든 UI를 닫는 내부 함수입니다.
     private void closeAllUI()
     {

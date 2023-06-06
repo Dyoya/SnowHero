@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -229,6 +230,9 @@ public class EnemyFSM : MonoBehaviour
     }
     void Damaged()
     {
+        Vector3 dir = (player.position - transform.position).normalized;
+        dir.y = 0;
+        cc.Move(-dir);
         StartCoroutine(DamageProcess());
     }
 
@@ -250,6 +254,7 @@ public class EnemyFSM : MonoBehaviour
         if(hp > 0)
         {
             m_State = EnemyState.Damaged;
+            agent.enabled = false;
             Damaged();
             print("상태 전환: Any State -> Damaged");
             anim.SetTrigger("Damaged");
@@ -270,7 +275,7 @@ public class EnemyFSM : MonoBehaviour
     IEnumerator DieProcess()
     {
         cc.enabled = false;
-        //player.GetComponent<PlayerFire>().KillUp(); //플레이어 킬 카운트 업
+        
         yield return new WaitForSeconds(2f);
         print("소멸!");
         Destroy(gameObject);
