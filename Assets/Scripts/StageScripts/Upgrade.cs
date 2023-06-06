@@ -31,7 +31,8 @@ public class Upgrade : MonoBehaviour
     // 공격력 증가 버튼 이벤트 입니다.
     public void IncreaseMoveSpeed()
     {
-        if (moveSpeed < maxValue)
+
+        if (moveSpeed < maxValue && totalStar > 0)
         {
             moveSpeed += 1;
             totalStar -= 1;
@@ -42,7 +43,7 @@ public class Upgrade : MonoBehaviour
 
     public void IncreaseAttackSpeed()
     {
-        if (attackSpeed < maxValue)
+        if (attackSpeed < maxValue && totalStar > 0)
         {
             attackSpeed += 1;
             totalStar -= 1;
@@ -54,7 +55,7 @@ public class Upgrade : MonoBehaviour
 
     public void IncreaseHealth()
     {
-        if (health < maxValue)
+        if (health < maxValue && totalStar > 0)
         {
             health += 1;
             totalStar -= 1;
@@ -65,7 +66,7 @@ public class Upgrade : MonoBehaviour
 
     public void IncreaseAttackPower()
     {
-        if(attackPower < maxValue)
+        if(attackPower < maxValue && totalStar > 0)
         {
             attackPower += 1;
             totalStar -= 1;
@@ -77,7 +78,7 @@ public class Upgrade : MonoBehaviour
 
     public void IncreaseSpecialSkill()
     {
-        if(SpecialSkill < maxValue)
+        if(SpecialSkill < maxValue && totalStar > 0)
         {
             SpecialSkill += 1;
             totalStar -= 1;

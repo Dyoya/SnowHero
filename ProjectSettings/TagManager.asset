@@ -7,6 +7,7 @@ TagManager:
   - Terrain
   - Enemy
   - Boss
+  - GazeObj
   layers:
   - Default
   - TransparentFX
