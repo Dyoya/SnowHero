@@ -22,7 +22,11 @@ public class Upgrade : MonoBehaviour
     private int totalStar = 0;
     public const int maxValue = 4; // ÃÖ´ë °ª
 
+
     void Start()
+    {
+    }
+    private void Update()
     {
         LoadStats();
         UpdateUI();

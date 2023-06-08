@@ -11,7 +11,7 @@ public class StageLock : MonoBehaviour
     public Sprite unLockImage;
 
 
-    private void Start()
+    private void Update()
     {
         Button[] stages = stageNumObject.GetComponentsInChildren<Button>();
 
@@ -41,4 +41,5 @@ public class StageLock : MonoBehaviour
         }
 
     }
+
 }
