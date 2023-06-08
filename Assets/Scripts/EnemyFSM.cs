@@ -40,6 +40,8 @@ public class EnemyFSM : MonoBehaviour
     public int maxhp = 15;
     public float healDelay = 1f;
 
+    public float knockbackDistance = 2f;
+
     //네비게이션
     public NavMeshAgent agent;
 
@@ -232,10 +234,19 @@ public class EnemyFSM : MonoBehaviour
     {
         Vector3 dir = (player.position - transform.position).normalized;
         dir.y = 0;
-        cc.Move(-dir);
+        dir *= knockbackDistance;
+
+        //넉백
+        float elapsedTime = 0;
+        float knockbackDuration = 0.5f;
+        while (elapsedTime < knockbackDuration)
+        {
+            cc.SimpleMove(-dir);
+            elapsedTime += Time.deltaTime;
+        }
+
         StartCoroutine(DamageProcess());
     }
-
     //코루틴 함수
     IEnumerator DamageProcess()
     {
@@ -270,6 +281,7 @@ public class EnemyFSM : MonoBehaviour
     void Die()
     {
         StopAllCoroutines();
+        agent.enabled = false;
         StartCoroutine(DieProcess());
     }
     IEnumerator DieProcess()

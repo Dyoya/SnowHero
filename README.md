@@ -1,8 +1,7 @@
 # SnowHero
 
-## 발견된 버그 및 문제점
-- 마법사가 때때로 스킬을 2번 연속 사용
-- 마법사 스킬 애니메이션 어색
+## 수정 필요
+- 마법사 스킬 오브젝트 생성 몇 초 후 사라지도록 하면 좋을듯!
 
 
 ## 메모
@@ -121,6 +120,12 @@ https://blog.naver.com/raruz/222852771902
 - `BossWizardAnim` 수정, 추가 수정 필요
 - `Enemy/` 내에 완성된 enemy 객체 `Slime` 9종, `Mushroom` 및 애니메이터 `SlimeAnim`, `MushroomAnim`추가
 - enemy 경직 추가
+
+### [2023-06-08]
+`v0.1.7`
+- `EnemyFSM` 수정 : enemy 경직 및 넉백 수정
+- 보스 Magic Rock 텍스쳐 추가
+- `PlayerMove` 수정 : 특수 스킬 추가(Special Skill 1 이상 부터 사용가능, 3초 동안 이동속도 n*20% 증가)
 
 
 

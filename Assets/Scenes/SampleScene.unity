@@ -615,6 +615,7 @@ MonoBehaviour:
   hp: 0
   maxhp: 15
   healDelay: 1
+  knockbackDistance: 2
   agent: {fileID: 0}
 --- !u!143 &569496515
 CharacterController:
@@ -2179,7 +2180,8 @@ MonoBehaviour:
   nowstage: 0
   UIStage: {fileID: 0}
   remainMonsterText: {fileID: 0}
-  GameClearUI: {fileID: 0}
+  ResultCamTransform: {fileID: 0}
+  Player: {fileID: 0}
   totalTime: 180
   timerText: {fileID: 0}
 --- !u!4 &1664142636
@@ -4608,6 +4610,10 @@ PrefabInstance:
     - target: {fileID: 6662198458606725602, guid: b54622bbf2e53104084c11106d56da92, type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392772509717817104, guid: b54622bbf2e53104084c11106d56da92, type: 3}
+      propertyPath: knockbackDistance
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b54622bbf2e53104084c11106d56da92, type: 3}
