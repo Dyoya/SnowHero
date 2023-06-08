@@ -122,7 +122,7 @@ https://blog.naver.com/raruz/222852771902
 - enemy 경직 추가
 
 ### [2023-06-08]
-`v0.1.7`
+`v0.1.7` (14:15)
 - `EnemyFSM` 수정 : enemy 경직 및 넉백 수정
 - 보스 Magic Rock 텍스쳐 추가
 - `PlayerMove` 수정 : 특수 스킬 추가(Special Skill 1 이상 부터 사용가능, 3초 동안 이동속도 n*20% 증가)
