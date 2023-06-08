@@ -9,6 +9,14 @@ public class Magic_spear : MonoBehaviour
     float speed = 30.0f; // 발사 속도 조절 가능
     public Vector3 direction;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Terrain")
+        {
+            Destroy(gameObject, 2f);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isDestroyed && other.gameObject.tag == "Player")

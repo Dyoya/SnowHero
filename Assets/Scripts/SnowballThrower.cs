@@ -7,6 +7,8 @@ public class SnowballThrower : MonoBehaviour
     public float maxHoldTime = 2f;      // 최대 힘까지 걸리는 시간
     public float forwardOffset = 1f;
     public int numPoints = 30;
+    public float throwCooldown = 2f;
+    float throwTimer = 0f;
     public LineRenderer lineRenderer;
     public GameObject snowballPrefab;
 
@@ -15,23 +17,31 @@ public class SnowballThrower : MonoBehaviour
      
     void Update()
     {
-        if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch))
+        if (throwTimer > 0f)
         {
-            isThrowing = true;
-            currentHoldTime = 0f;
-            lineRenderer.positionCount = 0;
+            throwTimer -= Time.deltaTime;
         }
+        else
+        {
+            if (ARAVRInput.GetDown(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch))
+            {
+                isThrowing = true;
+                currentHoldTime = 0f;
+                lineRenderer.positionCount = 0;
+            }
+            else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
+            {
+                currentHoldTime = Mathf.Clamp(currentHoldTime + Time.deltaTime, 0f, maxHoldTime); // 0 ~ maxHoldTime 사이값만 존재
+                CalculateTrajectory();
+            }
+            else if (ARAVRInput.GetUp(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
+            {
+                isThrowing = false;
+                ThrowSnowball();
+                lineRenderer.positionCount = 0;
 
-        else if (ARAVRInput.Get(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
-        {
-            currentHoldTime = Mathf.Clamp(currentHoldTime + Time.deltaTime, 0f, maxHoldTime); // 0 ~ maxHoldTime 사이값만 존재
-            CalculateTrajectory();
-        }
-        else if (ARAVRInput.GetUp(ARAVRInput.Button.One, ARAVRInput.Controller.RTouch) && isThrowing)
-        {
-            isThrowing = false;
-            ThrowSnowball();
-            lineRenderer.positionCount = 0;
+                throwTimer = throwCooldown;
+            }
         }
     }
 

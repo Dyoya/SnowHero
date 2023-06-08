@@ -127,6 +127,9 @@ https://blog.naver.com/raruz/222852771902
 - 보스 Magic Rock 텍스쳐 추가
 - `PlayerMove` 수정 : 특수 스킬 추가(Special Skill 1 이상 부터 사용가능, 3초 동안 이동속도 n*20% 증가)
 
+`v0.1.8`
+- `Magic_ball`, `Magic_spear` 수정 : 일정시간 후 삭제
+- `SnowballThrower` 수정 : 던지기 쿨타임 추가
 
 
 ## 스크립트 정보

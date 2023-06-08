@@ -19,8 +19,7 @@ public class Magic_ball : MonoBehaviour
     {
         if (collision.gameObject.tag == "Terrain")
         {
-            // 땅에 닿을 때까지 파괴하지 않음
-            return;
+            Destroy(gameObject, 4f);
         }
     }
 
