@@ -17,10 +17,12 @@ public class GazePointerCtrl : MonoBehaviour
     float curGazeTime;
     public float gazeChargeTime = 3f;
 
+    private AudioSource audioSource;
     void Start()
     {
         curGazeTime = 0;
         prevHitObj = null;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class GazePointerCtrl : MonoBehaviour
                     Button button = curHitObj.GetComponent<Button>();
                     if (button != null && button.interactable)
                     {
+                        audioSource.Play();
                         button.onClick.Invoke();
                     }
                     curGazeTime = 0;
