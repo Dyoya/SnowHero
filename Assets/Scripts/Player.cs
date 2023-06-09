@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
     {
 
         //hitEffect.SetActive(true);
-        m_Vignette.intensity.Override(0.5f);
+        m_Vignette.intensity.Override(0.8f);
         yield return new WaitForSeconds(0.5f);
         m_Vignette.intensity.Override(0.0f);
         //hitEffect.SetActive(false);
