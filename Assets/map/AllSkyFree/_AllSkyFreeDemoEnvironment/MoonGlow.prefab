@@ -40,7 +40,7 @@ LensFlare:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135272}
   m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: 241af96f1ab544ef09a3a66d01d8c862, type: 2}
+  m_Flare: {fileID: 12100000, guid: abbc1e6231a944490a02e2ad613ec906, type: 2}
   m_Color: {r: 0.17052338, g: 0.21633165, b: 0.2794118, a: 1}
   m_Brightness: 1
   m_FadeSpeed: 0.1
