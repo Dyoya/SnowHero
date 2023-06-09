@@ -29,12 +29,12 @@ public class Boss_Wizard : MonoBehaviour
     public bool is_ing; //스킬을 사용 중인가
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentTime = 0;
 
         fsm = GetComponent<EnemyFSM>();
-        player = fsm.player;
+        player = GameObject.Find("Player").transform;
 
         skills = new List<BossSkill>
         {
@@ -182,10 +182,11 @@ public class Boss_Wizard : MonoBehaviour
         anime.SetTrigger("incant_Magic_rock");
         yield return new WaitForSeconds(0.2f);
 
+        Debug.Log("안됨1");
         float offsetHeight = 20f; // 플레이어 머리 위로의 오프셋 높이
 
         Vector3 spawnPosition = player.position + Vector3.up * offsetHeight;
-
+        Debug.Log("안됨2");
         GameObject Rock = Instantiate(Magic_rock, spawnPosition, Quaternion.identity);
         Rock.SetActive(true);
         Rock.GetComponent<Magic_Rock>().enabled = false; // Magic_Rock 스크립트 비활성화
