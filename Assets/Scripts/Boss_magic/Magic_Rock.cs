@@ -15,7 +15,7 @@ public class Magic_Rock : MonoBehaviour
     {
         if (collision.gameObject.tag == "Terrain")
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 

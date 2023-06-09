@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 3728060}
   m_Layer: 7
   m_Name: ground-2 (14)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 16457079}
   m_Layer: 7
   m_Name: ground_4 (11)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 52977375}
   m_Layer: 7
   m_Name: ground-2 (15)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 54561030}
   m_Layer: 7
   m_Name: ground_4 (8)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 122750477}
   m_Layer: 7
   m_Name: fire particle
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5529,7 +5529,7 @@ GameObject:
   - component: {fileID: 152959849}
   m_Layer: 7
   m_Name: cup light (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5677,7 +5677,7 @@ GameObject:
   - component: {fileID: 212921655}
   m_Layer: 7
   m_Name: ground-2 (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5805,7 +5805,7 @@ GameObject:
   - component: {fileID: 226464179}
   m_Layer: 7
   m_Name: ground_4 (9)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5933,7 +5933,7 @@ GameObject:
   - component: {fileID: 229452197}
   m_Layer: 7
   m_Name: cup light
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6082,7 +6082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2251488599474807566, guid: 8fa5a895d35f16d42999e539868b4875, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2251488599474807566, guid: 8fa5a895d35f16d42999e539868b4875, type: 3}
       propertyPath: m_LocalScale.x
@@ -6154,7 +6154,7 @@ GameObject:
   - component: {fileID: 286081379}
   m_Layer: 7
   m_Name: ground_4 (18)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6167,7 +6167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286081377}
   m_LocalRotation: {x: 0.000000021855694, y: -1.134464e-16, z: 1.134464e-16, w: 1}
-  m_LocalPosition: {x: -37, y: -18.673, z: 39.841}
+  m_LocalPosition: {x: -37, y: -18.673, z: 39.93}
   m_LocalScale: {x: 1.9899, y: 1.9899, z: 1.9899}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6355,7 +6355,7 @@ GameObject:
   - component: {fileID: 319538995}
   m_Layer: 7
   m_Name: ground-2_corner (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6484,7 +6484,7 @@ GameObject:
   - component: {fileID: 350795860}
   m_Layer: 7
   m_Name: fire particle
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11437,7 +11437,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &382089082
 GameObject:
@@ -11455,7 +11455,7 @@ GameObject:
   - component: {fileID: 382089084}
   m_Layer: 7
   m_Name: ground-2 (19)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11583,7 +11583,7 @@ GameObject:
   - component: {fileID: 435761300}
   m_Layer: 7
   m_Name: stairs_2
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11595,14 +11595,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435761298}
-  m_LocalRotation: {x: 0.00000000623811, y: -0.9584018, z: -0.000000020946535, w: 0.28542253}
+  m_LocalRotation: {x: 0.000000014824427, y: -0.73479736, z: -0.000000016059504, w: 0.6782867}
   m_LocalPosition: {x: -37.2, y: -21.8, z: 6.8}
   m_LocalScale: {x: 1.0401208, y: 1.0401207, z: 1.0401208}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1275280620}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -146.832, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -94.58, z: 0}
 --- !u!64 &435761300
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11711,7 +11711,7 @@ GameObject:
   - component: {fileID: 461804956}
   m_Layer: 7
   m_Name: fire_cup_1
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11839,7 +11839,7 @@ GameObject:
   - component: {fileID: 476761862}
   m_Layer: 7
   m_Name: fire_cup_1 (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11967,7 +11967,7 @@ GameObject:
   - component: {fileID: 500753366}
   m_Layer: 7
   m_Name: ground_4 (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12095,7 +12095,7 @@ GameObject:
   - component: {fileID: 531841373}
   m_Layer: 7
   m_Name: ground_4 (16)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12219,6 +12219,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 764871767955319986, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 764871767955319986, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12237,6 +12241,10 @@ PrefabInstance:
     - target: {fileID: 2072005146838210861, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072005146838210861, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 2072005146838210861, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12295,12 +12303,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8233156990480976356, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233156990480976356, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9191193100930100450, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191193100930100450, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 9191193100930100450, guid: 6c5a99a2d80875d4f9087a3fd64bcea1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12329,7 +12345,7 @@ GameObject:
   - component: {fileID: 535896859}
   m_Layer: 7
   m_Name: ground-2 (13)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12457,7 +12473,7 @@ GameObject:
   - component: {fileID: 553256905}
   m_Layer: 7
   m_Name: pylon_1 (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12585,7 +12601,7 @@ GameObject:
   - component: {fileID: 688350620}
   m_Layer: 7
   m_Name: ground-2 (10)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12713,7 +12729,7 @@ GameObject:
   - component: {fileID: 703885383}
   m_Layer: 7
   m_Name: pylon_1
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12841,7 +12857,7 @@ GameObject:
   - component: {fileID: 733861939}
   m_Layer: 7
   m_Name: ground-2 (7)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12969,7 +12985,7 @@ GameObject:
   - component: {fileID: 800499532}
   m_Layer: 7
   m_Name: ground_4 (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13097,7 +13113,7 @@ GameObject:
   - component: {fileID: 822717482}
   m_Layer: 7
   m_Name: ground-2 (17)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13357,7 +13373,7 @@ GameObject:
   - component: {fileID: 878463254}
   m_Layer: 7
   m_Name: ground-2 (6)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13478,7 +13494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -13494,23 +13510,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.060009
+      value: 28.36
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.5759563
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000022888184
+      value: -0.12242595
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6760769
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.7368312
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalRotation.y
@@ -13522,7 +13538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -94.924
       objectReference: {fileID: 0}
     - target: {fileID: 4910800372840200814, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -13544,6 +13560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spear
       objectReference: {fileID: 0}
+    - target: {fileID: 4913094118377589278, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fdcfcdcd9378aa48b14b82fa0a402cd, type: 3}
 --- !u!1 &883355541
@@ -13562,7 +13582,7 @@ GameObject:
   - component: {fileID: 883355543}
   m_Layer: 7
   m_Name: cup light (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13710,7 +13730,7 @@ GameObject:
   - component: {fileID: 923172519}
   m_Layer: 7
   m_Name: fire_cup_1 (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13853,12 +13873,9 @@ RectTransform:
   m_LocalScale: {x: 0.33802083, y: 0.33802083, z: 0.33802083}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 373404939}
   - {fileID: 1010510226}
-  - {fileID: 447271906}
-  - {fileID: 707290972}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13953,11 +13970,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 80236455}
-  - {fileID: 1354086364}
-  m_Father: {fileID: 824880674}
-  m_RootOrder: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -13993,7 +14008,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 956918613}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14016,7 +14031,7 @@ GameObject:
   - component: {fileID: 1011231711}
   m_Layer: 7
   m_Name: pylon_1 (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14144,7 +14159,7 @@ GameObject:
   - component: {fileID: 1051732689}
   m_Layer: 7
   m_Name: ground_4 (14)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14157,7 +14172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051732687}
   m_LocalRotation: {x: 0.000000021855694, y: -1.134464e-16, z: 1.134464e-16, w: 1}
-  m_LocalPosition: {x: -52.92, y: -18.673, z: 39.861}
+  m_LocalPosition: {x: -52.92, y: -18.673, z: 40}
   m_LocalScale: {x: 1.9899, y: 1.9899, z: 1.9899}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14272,7 +14287,7 @@ GameObject:
   - component: {fileID: 1059240441}
   m_Layer: 7
   m_Name: ground_4 (10)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14400,7 +14415,7 @@ GameObject:
   - component: {fileID: 1118550698}
   m_Layer: 7
   m_Name: ground_4 (7)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14578,7 +14593,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168376656
 GameObject:
@@ -14596,7 +14611,7 @@ GameObject:
   - component: {fileID: 1168376658}
   m_Layer: 7
   m_Name: ground_4 (6)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14730,7 +14745,7 @@ GameObject:
   - component: {fileID: 1200733549}
   m_Layer: 7
   m_Name: fire particle
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19607,7 +19622,7 @@ GameObject:
   - component: {fileID: 1211265625}
   m_Layer: 7
   m_Name: fire_cup_1 (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19735,7 +19750,7 @@ GameObject:
   - component: {fileID: 1257567523}
   m_Layer: 7
   m_Name: cup light
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19878,7 +19893,7 @@ GameObject:
   - component: {fileID: 1275280620}
   m_Layer: 7
   m_Name: Enviroment
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19958,7 +19973,7 @@ Transform:
   - {fileID: 286081378}
   - {fileID: 535147132}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290979771
 GameObject:
@@ -19976,7 +19991,7 @@ GameObject:
   - component: {fileID: 1290979773}
   m_Layer: 7
   m_Name: pylon_1 (2)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20104,7 +20119,7 @@ GameObject:
   - component: {fileID: 1359442510}
   m_Layer: 7
   m_Name: ground_4 (5)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20237,7 +20252,7 @@ GameObject:
   - component: {fileID: 1461552589}
   m_Layer: 7
   m_Name: ground-2 (08)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20365,7 +20380,7 @@ GameObject:
   - component: {fileID: 1485085460}
   m_Layer: 7
   m_Name: ground-2 (09)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20493,7 +20508,7 @@ GameObject:
   - component: {fileID: 1494632927}
   m_Layer: 7
   m_Name: cup light
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20632,9 +20647,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7428972764307446755, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181916, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181916, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_LocalScale.x
@@ -20694,11 +20713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181985, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_Size.y
-      value: 4.918381
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181985, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_Center.y
-      value: 1.9591907
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181989, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_Name
@@ -20706,7 +20725,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7429511431928181989, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442612859536438867, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
+      propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493862380414044491, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb7b68c2e3454f41b8a79571f918865, type: 3}
@@ -20726,7 +20753,7 @@ GameObject:
   - component: {fileID: 1524455245}
   m_Layer: 7
   m_Name: ground-2 (05)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20854,7 +20881,7 @@ GameObject:
   - component: {fileID: 1527261095}
   m_Layer: 7
   m_Name: ground-2 (11)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -20987,7 +21014,7 @@ GameObject:
   - component: {fileID: 1548191750}
   m_Layer: 7
   m_Name: ground_4 (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21172,7 +21199,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1565261529
 GameObject:
@@ -21190,7 +21217,7 @@ GameObject:
   - component: {fileID: 1565261531}
   m_Layer: 7
   m_Name: ground-2 (4)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21318,7 +21345,7 @@ GameObject:
   - component: {fileID: 1681399842}
   m_Layer: 7
   m_Name: ground-2 (18)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21446,7 +21473,7 @@ GameObject:
   - component: {fileID: 1689355782}
   m_Layer: 7
   m_Name: ground-2 (12)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21574,7 +21601,7 @@ GameObject:
   - component: {fileID: 1787790972}
   m_Layer: 7
   m_Name: ground_4 (4)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21702,7 +21729,7 @@ GameObject:
   - component: {fileID: 1799447577}
   m_Layer: 7
   m_Name: ground-2 (16)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21831,7 +21858,7 @@ GameObject:
   - component: {fileID: 1840146148}
   m_Layer: 7
   m_Name: fire particle
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26708,7 +26735,7 @@ GameObject:
   - component: {fileID: 1843171555}
   m_Layer: 7
   m_Name: ground-2_corner (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26836,7 +26863,7 @@ GameObject:
   - component: {fileID: 1868764900}
   m_Layer: 7
   m_Name: ground-2 (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -26964,7 +26991,7 @@ GameObject:
   - component: {fileID: 1886156751}
   m_Layer: 7
   m_Name: cup light
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27112,7 +27139,7 @@ GameObject:
   - component: {fileID: 1909780159}
   m_Layer: 7
   m_Name: ground_4 (12)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27240,7 +27267,7 @@ GameObject:
   - component: {fileID: 1926142641}
   m_Layer: 7
   m_Name: ground-2 (3)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27368,7 +27395,7 @@ GameObject:
   - component: {fileID: 1953022196}
   m_Layer: 7
   m_Name: ground_4 (13)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27381,7 +27408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953022194}
   m_LocalRotation: {x: 0.000000021855694, y: -1.134464e-16, z: 1.134464e-16, w: 1}
-  m_LocalPosition: {x: -21.08, y: -18.673, z: 24.140999}
+  m_LocalPosition: {x: -21.08, y: -18.673, z: 24.04}
   m_LocalScale: {x: 1.9899, y: 1.9899, z: 1.9899}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27496,7 +27523,7 @@ GameObject:
   - component: {fileID: 1954589651}
   m_Layer: 7
   m_Name: ground_4 (15)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27624,7 +27651,7 @@ GameObject:
   - component: {fileID: 1954940606}
   m_Layer: 7
   m_Name: ground_4 (17)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27752,7 +27779,7 @@ GameObject:
   - component: {fileID: 1955302494}
   m_Layer: 7
   m_Name: ground-2
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -27877,7 +27904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3252784541214733906, guid: 9395c17404f603947953d938167a3233, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3252784541214733906, guid: 9395c17404f603947953d938167a3233, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27941,7 +27968,7 @@ GameObject:
   - component: {fileID: 2037669699}
   m_Layer: 7
   m_Name: ground-2_corner (1)
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -28107,7 +28134,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103001524
 GameObject:
@@ -28125,7 +28152,7 @@ GameObject:
   - component: {fileID: 2103001526}
   m_Layer: 7
   m_Name: ground-2_corner
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

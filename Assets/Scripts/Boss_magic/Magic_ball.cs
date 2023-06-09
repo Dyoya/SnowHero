@@ -65,7 +65,7 @@ public class Magic_ball : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < 2f)
         {
-            angularPower += 0.01f;
+            angularPower += 0.03f;
 
             // 회전력을 가하기 위해 Quaternion.Euler을 사용하여 회전값을 계산합니다.
             Quaternion rotation = Quaternion.Euler(angularPower, 0f, 0f);
