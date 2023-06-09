@@ -23,6 +23,8 @@ public class MainMenu : MonoBehaviour
     public TMP_Text UIStageText;
     public TMP_Text timerText;
     public TMP_Text remainHpText;
+
+    private int maxHp;
     public void Update()
     {
         if (PlayerPrefs.GetInt("Clear") == 1)
@@ -45,11 +47,12 @@ public class MainMenu : MonoBehaviour
 
                 remainHpText.text = result_hp.ToString();
                 int starCount = 1;
-                if (result_hp > 10)
+                maxHp = 8 + PlayerPrefs.GetInt("Health") * 4;
+                if (result_hp > maxHp/2)
                 {
                     starCount++;
                 }
-                if (result_Timer > 60)
+                if (result_Timer > 120)
                 {
                     starCount++;
                 }
