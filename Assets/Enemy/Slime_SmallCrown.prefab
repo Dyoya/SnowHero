@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4492346533448821405}
   m_Layer: 0
   m_Name: Slime_SmallCrown
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   hp: 10
   maxhp: 10
   healDelay: 1
+  knockbackDistance: 2
+  agent: {fileID: 0}
 --- !u!1 &756954700330152657
 GameObject:
   m_ObjectHideFlags: 0

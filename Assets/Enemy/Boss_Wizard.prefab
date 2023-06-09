@@ -822,15 +822,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 30
+  findDistance: 40
   attackDistance: 5
-  moveSpeed: 5
+  moveSpeed: 6
   player: {fileID: 0}
-  attackDelay: 5
+  attackDelay: 3
   attackPower: 2
   maxDistanceFromPlayer: 255
-  hp: 10
-  maxhp: 15
+  hp: 100
+  maxhp: 100
   healDelay: 1
   knockbackDistance: 2
   agent: {fileID: 0}

@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1548319647623557113}
   m_Layer: 0
   m_Name: Slime_Basic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,8 +214,8 @@ Transform:
   m_GameObject: {fileID: 5220484702283851035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -45.20991, y: 0, z: -7.4929876}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8982678402642112906}
   - {fileID: 438988269991501644}
@@ -322,16 +322,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 10
+  findDistance: 30
   attackDistance: 1.5
-  moveSpeed: 4
+  moveSpeed: 3
   player: {fileID: 0}
-  attackDelay: 2
-  attackPower: 1
-  maxDistanceFromPlayer: 20
-  hp: 10
-  maxhp: 10
+  attackDelay: 1
+  attackPower: 2
+  maxDistanceFromPlayer: 50
+  hp: 12
+  maxhp: 12
   healDelay: 1
+  knockbackDistance: 2
+  agent: {fileID: 0}
 --- !u!1 &6813301007455720835
 GameObject:
   m_ObjectHideFlags: 0

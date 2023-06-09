@@ -7,14 +7,18 @@ public class SnowballThrower : MonoBehaviour
     public float maxHoldTime = 2f;      // 최대 힘까지 걸리는 시간
     public float forwardOffset = 1f;
     public int numPoints = 30;
-    public float throwCooldown = 2f;
+    public float throwCooldown = 1.5f;
     float throwTimer = 0f;
     public LineRenderer lineRenderer;
     public GameObject snowballPrefab;
 
     private float currentHoldTime;
     private bool isThrowing;
-     
+
+    private void Start()
+    {
+        throwCooldown -= 0.2f * PlayerPrefs.GetInt("AttackSpeed");
+    }
     void Update()
     {
         if (throwTimer > 0f)
@@ -39,7 +43,7 @@ public class SnowballThrower : MonoBehaviour
                 isThrowing = false;
                 ThrowSnowball();
                 lineRenderer.positionCount = 0;
-
+                
                 throwTimer = throwCooldown;
             }
         }

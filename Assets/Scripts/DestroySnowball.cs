@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class DestroySnowball : MonoBehaviour
 {
-    public int damage;
+    int damage;
+    public int minDamage = 2;
+    public int maxDamage = 4;
+    int attackLevel;
     public LayerMask terrainLayer; // Transform enemy; // ´«À» ÆÄ±«½ÃÅ³ ·¹ÀÌ¾î
 
+    private void Start()
+    {
+        attackLevel = PlayerPrefs.GetInt("AttackPower");
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (terrainLayer == (terrainLayer | (1 << collision.gameObject.layer)))
@@ -22,6 +29,10 @@ public class DestroySnowball : MonoBehaviour
             EnemyFSM enemy = other.gameObject.GetComponent<EnemyFSM>();
             if (enemy != null)
             {
+                damage = Random.Range(minDamage, maxDamage);
+
+                damage += attackLevel;
+
                 enemy.HitEnemy(damage);
             }
             Destroy(gameObject);

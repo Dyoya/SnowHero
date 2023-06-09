@@ -582,8 +582,8 @@ Transform:
   m_GameObject: {fileID: 6662198458606725602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.9399962, y: 0, z: -47.636696}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8318522030263940962}
   - {fileID: 229908416834504904}
@@ -678,16 +678,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 10
+  findDistance: 30
   attackDistance: 1.5
   moveSpeed: 4
   player: {fileID: 0}
-  attackDelay: 2
+  attackDelay: 0.8
   attackPower: 1
-  maxDistanceFromPlayer: 20
+  maxDistanceFromPlayer: 50
   hp: 10
   maxhp: 10
   healDelay: 1
+  knockbackDistance: 2
   agent: {fileID: 0}
 --- !u!114 &7392772509717817107
 MonoBehaviour:

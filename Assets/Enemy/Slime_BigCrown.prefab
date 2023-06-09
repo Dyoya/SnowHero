@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1743350853963430027}
   m_Layer: 0
   m_Name: Slime_BigCrown
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1454319808216097772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -43.808487, y: 0, z: -7.5942764}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5449395050372253882}
   - {fileID: 5335337210068668050}
@@ -139,16 +139,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 10
-  attackDistance: 1.5
-  moveSpeed: 4
+  findDistance: 20
+  attackDistance: 3
+  moveSpeed: 2
   player: {fileID: 0}
-  attackDelay: 2
-  attackPower: 1
-  maxDistanceFromPlayer: 20
-  hp: 10
-  maxhp: 10
+  attackDelay: 3
+  attackPower: 5
+  maxDistanceFromPlayer: 40
+  hp: 40
+  maxhp: 40
   healDelay: 1
+  knockbackDistance: 1
+  agent: {fileID: 0}
 --- !u!1 &3430426409443186401
 GameObject:
   m_ObjectHideFlags: 0

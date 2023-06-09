@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     // 이동 속도
-    public float speed = 5;
+    public float speed = 3;
     float tempSpeed;
     // CharacterController 컴포넌트
     CharacterController cc;
@@ -27,9 +27,9 @@ public class PlayerMove : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
 
-        skillLevel = PlayerPrefs.GetInt("SpecialSkill");
-
         currentTime = 0;
+
+        speed *= 1 + (PlayerPrefs.GetInt("MoveSpeed") * 0.2f);
 
         tempSpeed = speed;
     }
@@ -53,6 +53,8 @@ public class PlayerMove : MonoBehaviour
         dir.y = yVelocity;
 
         // 스킬 사용
+        skillLevel = PlayerPrefs.GetInt("SpecialSkill");
+
         if (ARAVRInput.GetDown(ARAVRInput.Button.Two, ARAVRInput.Controller.RTouch) && !isSkill)
         {
             speedUpSkill();
@@ -75,7 +77,7 @@ public class PlayerMove : MonoBehaviour
         {
             Debug.Log("스페셜 스킬의 레벨이 1 이상부터 스킬을 사용할 수 있습니다.");
         }
-        if (currentTime > cooldownSkill)
+        else if (currentTime > cooldownSkill)
         {
             isSkill = true;
             currentTime = 0;

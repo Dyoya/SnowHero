@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
 {
     public PostProcessVolume m_Volume;
     Vignette m_Vignette;
-    public int hp = 20;
-    int maxHp = 20;
+    public int hp = 8;
+    int maxHp = 8;
     //public GameObject hitEffect;
     public GameObject GameOverUI;
 
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         PlayerRotateCP = GetComponent<PlayerRotate>();
         SnowballThrowerCP = GetComponent<SnowballThrower>();
         CamRotateCP = GetComponentInChildren<CamRotate>();
-        maxHp += PlayerPrefs.GetInt("Health"); // maxHP를 업그레이한 만큼 증가시킵니다.
+        maxHp += PlayerPrefs.GetInt("Health") * 4; // maxHP를 업그레이드한 만큼 증가시킵니다.
         hp = maxHp;
         // HealthBar UI 초기상태입니다.
         healBars = new Image[maxHp];

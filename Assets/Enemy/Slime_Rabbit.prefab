@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6323438329822576014}
   m_Layer: 0
   m_Name: Slime_Rabbit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,16 +299,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 10
-  attackDistance: 1.5
-  moveSpeed: 4
+  findDistance: 30
+  attackDistance: 1
+  moveSpeed: 6
   player: {fileID: 0}
-  attackDelay: 2
+  attackDelay: 0.5
   attackPower: 1
-  maxDistanceFromPlayer: 20
-  hp: 10
-  maxhp: 10
+  maxDistanceFromPlayer: 50
+  hp: 3
+  maxhp: 3
   healDelay: 1
+  knockbackDistance: 2
+  agent: {fileID: 0}
 --- !u!1 &8936924162691656058
 GameObject:
   m_ObjectHideFlags: 0

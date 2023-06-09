@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 5636276037836989293}
   m_Layer: 0
   m_Name: Slime_Viking
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,8 +65,8 @@ Transform:
   m_GameObject: {fileID: 1362628728504647935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.851852, y: -0.000000059604645, z: -7.372938}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2752551342314624110}
   - {fileID: 6668842827513232040}
@@ -161,16 +161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  findDistance: 10
-  attackDistance: 1.5
-  moveSpeed: 4
+  findDistance: 30
+  attackDistance: 2
+  moveSpeed: 3
   player: {fileID: 0}
-  attackDelay: 2
-  attackPower: 1
-  maxDistanceFromPlayer: 20
-  hp: 10
-  maxhp: 10
+  attackDelay: 1
+  attackPower: 3
+  maxDistanceFromPlayer: 80
+  hp: 20
+  maxhp: 20
   healDelay: 1
+  knockbackDistance: 1.5
+  agent: {fileID: 0}
 --- !u!114 &5636276037836989293
 MonoBehaviour:
   m_ObjectHideFlags: 0
