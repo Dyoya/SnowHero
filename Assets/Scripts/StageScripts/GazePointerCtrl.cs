@@ -27,7 +27,7 @@ public class GazePointerCtrl : MonoBehaviour
 
     void Update()
     {
-        Vector3 dir = transform.TransformPoint(new Vector3(0,0,1000f));
+        Vector3 dir = transform.TransformPoint(Vector3.forward);
         Ray ray = new Ray(transform.position, dir);
         Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
         RaycastHit hitinfo;

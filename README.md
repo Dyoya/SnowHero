@@ -15,6 +15,9 @@ https://wergia.tistory.com/238
 - 주의점!
 https://blog.naver.com/raruz/222852771902
 
+- 설정 
+Project Settings -> XR Plug-in Management -> Oculus -> Stereo Rendering Mode를 Multi Pass로 수정 (Throw line을 양쪽눈으로 보기 위함입니다.)
+
 - 유니티 버전
 `2021.3.21f1`
 
