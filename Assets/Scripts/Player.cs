@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class Player : MonoBehaviour
     Vignette m_Vignette;
     public int hp = 8;
     int maxHp = 8;
-    //public GameObject hitEffect;
-    public GameObject GameOverUI;
 
     public GameObject healBarUIPrefab;
     public Transform healBarParent;
@@ -67,11 +66,11 @@ public class Player : MonoBehaviour
         {
             hp = 0;
             UpdateHealBarUI();
-            GameOverUI.SetActive(true);
             PlayerMoveCP.enabled = false;
             PlayerRotateCP.enabled = false;
             SnowballThrowerCP.enabled = false;
             CamRotateCP.enabled = false;
+            SceneManager.LoadScene(0);
 
         }
         print(hp);
