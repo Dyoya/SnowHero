@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         UpdateTimerText();
         if (monsterCount <= 0)
         {
+            PlayerPrefs.SetInt("prev_Stage", nowstage);
             NextStage();
             PlayerPrefs.SetInt("result", 1);
             gamedata.GetComponent<GameData>().SetTimer(currentTime);
@@ -90,7 +91,8 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 // Player를 2스테이지 시작 좌표로 이동
-                GameObject.Find("OVRCameraRig").transform.position = ResultCamTransform.position;
+                PlayerPrefs.SetInt("Clear", 1);
+                //GameObject.Find("OVRCameraRig").transform.position = ResultCamTransform.position;
                 break;
         }    
     }
