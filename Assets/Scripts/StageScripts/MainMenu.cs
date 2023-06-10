@@ -80,8 +80,8 @@ public class MainMenu : MonoBehaviour
     }
     public void Start()
     {
+        //PlayerPrefs.DeleteAll();
 
-        
     }
     // 모든 UI를 닫는 내부 함수입니다.
     private void closeAllUI()

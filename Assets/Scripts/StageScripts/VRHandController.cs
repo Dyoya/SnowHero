@@ -29,7 +29,7 @@ public class VRHandController : MonoBehaviour
             //myLine.SetPosition(1, hitinfo.point);
             GameObject curHitObj = hitinfo.transform.gameObject;
 
-            if (ARAVRInput.Get(ARAVRInput.Button.One))
+            if (ARAVRInput.GetDown(ARAVRInput.Button.One))
             {
                 if (hitinfo.transform.CompareTag("GazeObj"))
                 {

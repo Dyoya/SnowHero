@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
 
 
-    public float totalTime = 180f;
+    public float totalTime = 300f;
     public TMP_Text timerText;
     private float currentTime;
     private int monsterCount;
@@ -58,7 +59,6 @@ public class GameManager : MonoBehaviour
     {
         GameObject[] monsters = GameObject.FindGameObjectsWithTag("Enemy");
         monsterCount = monsters.Length;
-
         remainMonsterText.text = monsterCount.ToString();
         currentTime--;
         UpdateTimerText();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Magic_ball : MonoBehaviour
@@ -65,13 +66,13 @@ public class Magic_ball : MonoBehaviour
         float elapsedTime = 0f;
         while (elapsedTime < 2f)
         {
-            angularPower += 0.03f;
+            angularPower += 0.4f;
 
             // 회전력을 가하기 위해 Quaternion.Euler을 사용하여 회전값을 계산합니다.
             Quaternion rotation = Quaternion.Euler(angularPower, 0f, 0f);
             rb.MoveRotation(rb.rotation * rotation);
 
-            Vector3 playerDirection = player.position - transform.position;
+            Vector3 playerDirection = (player.position - transform.position).normalized;
             rb.AddForce(playerDirection.normalized * angularPower, ForceMode.Acceleration);
 
             elapsedTime += Time.deltaTime;
