@@ -3,7 +3,6 @@ using UnityEngine;
 public class Magic_spear : MonoBehaviour
 {
     public int damage;
-    public Transform target;
     Transform player;
     bool isDestroyed = false;
     float speed = 30.0f; // 발사 속도 조절 가능
@@ -27,10 +26,10 @@ public class Magic_spear : MonoBehaviour
         {
             Debug.LogError("Player object not found!");
         }
-        if (target != null)
+        if (player != null)
         {
             // 플레이어 방향으로 이동
-            direction = (target.position - transform.position).normalized;
+            direction = (player.position - transform.position).normalized;
         }
         Destroy(gameObject, 3f);
     }
@@ -38,7 +37,7 @@ public class Magic_spear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (player != null)
         {
             // 플레이어 방향으로 이동
             transform.position += direction * speed * Time.deltaTime;

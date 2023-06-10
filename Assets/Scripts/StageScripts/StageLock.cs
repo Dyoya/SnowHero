@@ -27,7 +27,7 @@ public class StageLock : MonoBehaviour
         
         Debug.Log(clearStage.ToString());
 
-        for (int i = 0; i <= clearStage; i++) 
+        for (int i = 0; i < clearStage; i++) 
         {
             stages[i].interactable = true;
             stages[i].GetComponent<Image>().sprite = unLockImage;
