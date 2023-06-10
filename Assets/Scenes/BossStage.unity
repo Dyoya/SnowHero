@@ -6748,7 +6748,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -296, y: -134}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 210, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451436196
 MonoBehaviour:
@@ -7389,12 +7389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nowstage: 4
-  UIStage: {fileID: 2142902825, guid: 1409cb7953aa17e4183c2f0626fab623, type: 2}
-  remainMonsterText: {fileID: 1500975425, guid: 1409cb7953aa17e4183c2f0626fab623, type: 2}
+  UIStage: {fileID: 451436196}
+  remainMonsterText: {fileID: 1860791791}
   ResultCamTransform: {fileID: 0}
-  Player: {fileID: 0}
+  Player: {fileID: 903234567}
   totalTime: 300
-  timerText: {fileID: 80236453, guid: 1409cb7953aa17e4183c2f0626fab623, type: 2}
+  timerText: {fileID: 363701769}
 --- !u!4 &596287858
 Transform:
   m_ObjectHideFlags: 0
