@@ -80,7 +80,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Start()
     {
-
+        
         
     }
     // 모든 UI를 닫는 내부 함수입니다.
