@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private CamRotate CamRotateCP;
     private SnowballThrower SnowballThrowerCP;
 
+    public AudioSource hitSound;
     void Start()
     {
         m_Volume.profile.TryGetSettings(out m_Vignette);
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
             healBars[i] = healBarObject.GetComponent<Image>();
         }
 
+        hitSound = GetComponent<AudioSource>();
     }
 
     private void UpdateHealBarUI()
@@ -61,6 +63,8 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(PlayHitEffect());
             UpdateHealBarUI();
+
+            hitSound.Play();
         }
         if(hp < 0)
         {

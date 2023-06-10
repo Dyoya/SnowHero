@@ -51,6 +51,9 @@ public class EnemyFSM : MonoBehaviour
     //보스 패턴 스크립트
     Boss_Wizard bw;
 
+    //피격 사운드
+    public AudioSource asDamaged;
+
     void Start()
     {
         m_State = EnemyState.Idle;
@@ -75,6 +78,8 @@ public class EnemyFSM : MonoBehaviour
             bw = GetComponent<Boss_Wizard>();
             
         }
+
+        asDamaged = GetComponent<AudioSource>();
     }
 
 
@@ -175,7 +180,9 @@ public class EnemyFSM : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("StartAttack");
-        transform.forward = (player.position - transform.position).normalized;
+        Vector3 temp = (player.position - transform.position).normalized;
+        temp.y = 0;
+        transform.forward = temp;
         print("공격!");
     }
     public void AttackAction()
@@ -188,7 +195,9 @@ public class EnemyFSM : MonoBehaviour
         if(Vector3.Distance(transform.position, player.position) < attackDistance)
         {
             //계속 플레이어 방향 바라보도록
-            transform.forward = (player.position - transform.position).normalized;
+            Vector3 temp = (player.position - transform.position).normalized;
+            temp.y = 0;
+            transform.forward = temp;
 
             if (currentTime >= attackDelay)
             {
@@ -262,7 +271,8 @@ public class EnemyFSM : MonoBehaviour
             return;
         }
         hp -= hitPower;
-        if(hp > 0)
+        asDamaged.Play();
+        if (hp > 0)
         {
             m_State = EnemyState.Damaged;
             agent.enabled = false;

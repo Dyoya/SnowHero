@@ -28,6 +28,12 @@ public class Boss_Wizard : MonoBehaviour
 
     public bool is_ing; //스킬을 사용 중인가
 
+    //보스 사운드
+    public AudioSource startMagicSound;
+    public AudioSource magicBallSound;
+    public AudioSource magicSpearSound;
+    public AudioSource magicRockSound;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -38,9 +44,9 @@ public class Boss_Wizard : MonoBehaviour
 
         skills = new List<BossSkill>
         {
-            new BossSkill("매직스피어", 20f, 1),
-            new BossSkill("매직볼", 30f, 2),
-            new BossSkill("매직락", 60f, 3)
+            new BossSkill("매직스피어", 10f, 1),
+            new BossSkill("매직볼", 20f, 2),
+            new BossSkill("매직락", 40f, 3)
         };
 
         isSkill = false;
@@ -96,6 +102,7 @@ public class Boss_Wizard : MonoBehaviour
     {
         if (is_ing != true)
         {
+            startMagicSound.Play();
             is_ing = true;
             switch (skill.name)
             {
@@ -124,6 +131,7 @@ public class Boss_Wizard : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameObject Spear = Instantiate(Magic_spear, transform.position, transform.rotation);
         Spear.SetActive(true);
+        magicSpearSound.Play();
         yield return new WaitForSeconds(0.2f);
         anime.SetTrigger("MagicSpearToMove");
     }
@@ -154,10 +162,12 @@ public class Boss_Wizard : MonoBehaviour
 
         GameObject Ball = Instantiate(Magic_ball, startPos + Vector3.up * 2.3f, Quaternion.identity);
         Ball.SetActive(true);
+        magicBallSound.Play();
 
         yield return new WaitForSeconds(2.0f);
 
         anime.SetTrigger("Magic_Ball");
+        magicBallSound.Play();
         yield return new WaitForSeconds(0.7f);
 
         anime.SetTrigger("Desending");
@@ -200,6 +210,7 @@ public class Boss_Wizard : MonoBehaviour
         Rock.transform.parent = null;
         Rock.GetComponent<Magic_Rock>().enabled = true; ;
         Rock.GetComponent<Magic_Rock>().StartFalling(); // Magic_Rock이 떨어지도록 호출
+        magicRockSound.Play();
 
         yield return new WaitForSeconds(dropDelay);
         anime.SetTrigger("MagicRockToMove");

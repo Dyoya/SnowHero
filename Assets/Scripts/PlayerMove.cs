@@ -21,6 +21,8 @@ public class PlayerMove : MonoBehaviour
     public float cooldownSkill = 10f;
     public bool isSkill = false;
 
+    public AudioSource skillSound;
+
     float currentTime;
 
     void Start()
@@ -32,6 +34,8 @@ public class PlayerMove : MonoBehaviour
         speed *= 1 + (PlayerPrefs.GetInt("MoveSpeed") * 0.2f);
 
         tempSpeed = speed;
+
+        skillSound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -82,7 +86,9 @@ public class PlayerMove : MonoBehaviour
             isSkill = true;
             currentTime = 0;
             tempSpeed = speed;
-            speed *= 1 + (0.2f * skillLevel);
+            speed *= 1 + (0.3f * skillLevel);
+
+            skillSound.Play();
             Debug.Log("스킬 사용!");
         }
     }

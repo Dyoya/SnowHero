@@ -19,7 +19,7 @@ public class Upgrade : MonoBehaviour
     private int health = 0;
     private int attackPower = 0;
     private int SpecialSkill = 0;
-    private int totalStar = 0;
+    public int totalStar = 0;
     public const int maxValue = 4; // ÃÖ´ë °ª
 
 
