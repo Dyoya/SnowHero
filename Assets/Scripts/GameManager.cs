@@ -65,7 +65,8 @@ public class GameManager : MonoBehaviour
         if (monsterCount <= 0)
         {
             PlayerPrefs.SetInt("prev_Stage", nowstage);
-            NextStage();
+            if(nowstage != 4)
+                NextStage();
             PlayerPrefs.SetInt("result", 1);
             gamedata.GetComponent<GameData>().SetTimer(currentTime);
             gamedata.GetComponent<GameData>().SetHP(Player.GetComponent<Player>().hp);
