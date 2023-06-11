@@ -1,8 +1,7 @@
 # SnowHero
 
 ## 수정 필요
-- 마법사 스킬 오브젝트 생성 몇 초 후 사라지도록 하면 좋을듯!
-
+- 
 
 ## 메모
 - 패키지 매니저에서 `Oculus Integration` 설치해서 임포트 부탁드려요! 용량이 커서 혹시몰라 이그노어 처리했습니다. 아직 사용된 파일은 X
@@ -143,6 +142,11 @@ Project Settings -> XR Plug-in Management -> Oculus -> Stereo Rendering Mode를 
 - 스테이지 별 BGM 추가
 - 플레이어 및 몬스터 피격, 마법사 패턴 효과음 추가
 - EnemyFSM 수정 : 몬스터 가까이 있을시 이상해지는 현상 수정
+
+### [2023-06-11]
+`v0.2.2` (15:00)
+- 플레이어 피격음, 스킬 사용음 제대로 구분해서 적용
+- 스테이지2 : global Illumination 사용 해제
 
 ## 스크립트 정보
 - `CamRotate`
